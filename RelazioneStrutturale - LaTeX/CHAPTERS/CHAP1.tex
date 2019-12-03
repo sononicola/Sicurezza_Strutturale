@@ -1,0 +1,63 @@
+%!TEX root = ../RelazioneStrutturaleMeoliNicola.tex
+\chapter{Relazione strutturale}
+\chapter{Analisi dei carichi}
+\section{Trave P - Vano scale -- Piano primo}
+\subsection{Terrazzo}
+\paragraph*{Carichi permanenti G1}
+\paragraph*{Carichi permanenti non strutturali G2}
+\paragraph*{Categoria B - balconi} La normativa prevede un carico distribuito pari a 
+\paragraph*{Neve}
+L'edificio è ubicato in zona 1 ad una quota superiore a \SI{200}{\meter} pertanto il valore di riferimento del carico della neve al suola risulta pari a
+\[
+	q_{sk}=1.39 \, [1+(a_s/728)^2] = \SI{1.626}{\kilo\newton\per\square\meter}
+\]
+
+Si assume che l'edificio sia in zona normale di vento. Pertanto $C_E$ risulta pari a $1$.
+Si assume un coefficiente termico $C_t = 1$ in quanto è assente uno specifico studio riguardo la perdita di calore della costruzione. 
+
+Per il calcolo del coefficiente di forma $\mu_i$ la normativa prevede due possibili casi dovuti alla vicinanza della copertura a costruzioni più alte in quanto si genera un accumolo di neve.
+Il primo caso prevede $\mu_1=0.8$ ed è costante data la copertura piana. Nel secondo $\mu_2$ è la somma tra il contributo $\mu_s$ dello scivolamento della neve dalla copertura al piano superiore e pertanto è nullo essendo piana anch'essa. 
+E il contributo $\mu_w$ dovuto al vento che redistribuisce la neve. 
+Questo vale 
+\[\mu_w=\frac{b_1 + b_2}{2\,h}=\frac{18+6}{2\cdot6.2}=1.935\] e nel quale si è considerata come $b_2$ fissa a favore di sicurezza.
+
+Essendo $l_s=2\,h>b_2$ il coefficiente $\mu$ deve essere valutato come interpolazione tra i due casi, risultando quindi pari a $(0.8 + 1.935)/2 = 1.368$
+
+Il carico dovuto alla neve sul terrazzo risulta infine pari a 
+\[q_s = q_{sk} \cdot C_E \cdot C_t \cdot \mu = \SI{1.626}{} \cdot 1 \cdot 1 \cdot 1.368 = \SI{2.224}{\kilo\newton\per\square\meter}\]
+
+\paragraph*{Vento}
+\subsection{Interno}
+\subsection{Pareti perimetrali}
+
+\section{Combinazioni di carico}
+Al fine di trovare le azioni più incisive nel caso di carico massimo e di carico minimo, si sono valutate le azioni sfavorevoli e favorevoli con diverse disposizione nelle campate. 
+Si elencheranno qui le diverse possibili combinazioni di carico agli stati limite ultimi e di esercizio.
+\begin{align}
+	\begin{split}
+	SLU^{\text{sfav}}_{\text{sovraccarico}} &= \gamma_{G1}\cdot G1 + \gamma_{G2} \cdot G2 + \gamma_{sovr} \cdot (Q_{terr.} + Q_{int.}) + \gamma_{neve}\cdot Q_{neve}\cdot\psi_{02} + \gamma_{vento}\cdot Q_{vento} \cdot \psi_{03}  \\
+											&= altro \\
+											&= risultato
+	\end{split} \\
+	\begin{split}
+	SLU^{\text{sfav}}_{\text{neve}} &= qualcosa \\
+									&= altro \\
+									&= risultato
+	\end{split} \\
+	\begin{split}
+	SLU^{\text{sfav}}_{\text{vento}}&= qualcosa \\
+									&= altro \\
+									&= risultato
+	\end{split} \\
+	SLU^{\text{fav}}	
+\end{align}
+
+
+\section{Pilastro P13}
+
+\chapter{Calcolo azioni sulla trave}
+\section{Criteri addottati}
+\section{Momento}
+
+\appendix
+\chapter{Codice risoluzione trave}
