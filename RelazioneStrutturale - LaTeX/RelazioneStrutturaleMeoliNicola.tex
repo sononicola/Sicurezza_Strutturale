@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{report}
+\documentclass[a4paper,10pt]{report}
 \usepackage{geometry}\geometry{a4paper,top=3.5cm,bottom=3.5cm,%
 left=2.5cm,right=2.5cm,heightrounded,bindingoffset=0mm}
 \usepackage[T1]{fontenc}
@@ -67,6 +67,10 @@ numberstyle=\tiny,}
         \phantomsection
         \addcontentsline{toc}{chapter}{Elenco delle figure}
 \endgroup
+%
+%
+\newcommand{\norma}[1]{\textsc{#1}}
+\newcommand{\normaref}[1]{\textsl{#1}}
    \input{CHAPTERS/CHAP1.tex}
 	 %\input{rel2/Relazione2.tex}    
 \end{document}
