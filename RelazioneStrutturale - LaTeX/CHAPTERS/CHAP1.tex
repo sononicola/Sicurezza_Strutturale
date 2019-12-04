@@ -94,6 +94,8 @@ Unendo tutti i contributi si ha
 \end{tabular}
 \end{center}
 \subsection{Pareti perimetrali}
+Sono agenti direttamente con un carico lineare al di sopra della trave e si estendono per una altezza pari a quella di interpiano meno la trave.
+Ovvero $\SI{3.10}{} - \SI{0.5}{} = \SI{2.60}{\meter}$.
 \begin{center}
 \begin{tabular}{lS[table-format=2.1]S[table-format=1.2]S[table-format=1.3]}
 	\toprule
@@ -108,8 +110,6 @@ Unendo tutti i contributi si ha
 	\bottomrule
 \end{tabular}
 \end{center}
-Sono agenti direttamente con un carico lineare al di sopra della trave e si estendono per una altezza pari a quella di interpiano meno la trave.
-Ovvero $\SI{3.10}{} - \SI{0.5}{} = \SI{2.60}{\meter}$.
 \[
 G_2^{pareti}=\SI{3.224}{\kilo\newton\per\square\meter} \cdot \SI{2.60}{\meter} = \SI{8.382}{\kilo\newton\per\meter}
 \]
@@ -119,7 +119,10 @@ Si è considerato il carico uniformemente distribuito nelle due travi adiacenti,
 Nella zona A è quindi pari a \SI{3.00}{\meter} nel terrazzo e \SI{2.50}{\meter} nel solaio interno. 
 Nella zona B è rispettivamente pari a \SI{1.75}{\meter} e \SI{2.50}{\meter}.
 
-I carichi a metro lineare sotto riportati tengono conto di tali lunghezze e sono stati combinati con le relativi azioni agenti sulla trave.
+I carichi a metro lineare sotto riportati tenendo conto di tali lunghezze e sono stati combinati con le relativi azioni agenti sulla trave.
+
+Nel caso dei sovraccarichi variabili si è assunta l'ipotesi che essi agiscano sempre insieme. 
+Ovvero quando è possibile che avvenga il valore caratteristico nel terrazzo, questo avverrà anche nel solaio interno.
 \paragraph*{Zona A} 
 \[
 \begin{split}
@@ -128,37 +131,84 @@ G_1^A &=  g_1^{ter.}\cdot L^{ter.} + g_1^{sol.}\cdot L^{sol.} + G_1^{trave} \\
 &= \SI{21.35}{\kilo\newton\per\meter} \\
 G_2^A &= g_2^{ter.}\cdot L^{ter.} + g_2^{sol.}\cdot L^{sol.} + G_2^{pareti} \\
 &= \SI{2.215}{\kilo\newton\per\square\meter}\cdot\SI{3.00}{\meter} + \SI{4.62}{\kilo\newton\per\square\meter}\cdot\SI{2.50}{\meter} + \SI{8.382}{\kilo\newton\per\meter} \\
-&= \SI{26.58}{\kilo\newton\per\meter}
+&= \SI{26.58}{\kilo\newton\per\meter}\\
+Q_{cat. B}^A &= q_{cat. B}^{ter.}\cdot L^{ter.} + q_{cat. B}^{sol.}\cdot L^{sol.} \\
+&= \SI{4.00}{\kilo\newton\per\square\meter}\cdot\SI{3.00}{\meter} + \SI{3.00}{\kilo\newton\per\square\meter}\cdot\SI{2.50}{\meter} \\
+&= \SI{19.50}{\kilo\newton\per\meter}\\
+Q_{neve}^A &= q_s \cdot L^{ter.} = \SI{2.224}{\kilo\newton\per\square\meter}\cdot\SI{3.00}{\meter} = \SI{6.672}{\kilo\newton\per\meter}
 \end{split}
 \]
 \paragraph*{Zona B} I carichi su superficie sono gli stessi della zona A e cambiano solo le lunghezze di riferimento. 
-Si ha infine
+Si ha perciò
 \begin{align*}
 G_1^B &= \SI{17.35}{\kilo\newton\per\meter}\\
-G_2^B &= \SI{23.81}{\kilo\newton\per\meter}
+G_2^B &= \SI{23.81}{\kilo\newton\per\meter}\\
+Q_{cat. B}^B &=  \SI{14.50}{\kilo\newton\per\meter}\\
+Q_{neve}^B &= \SI{3.892}{\kilo\newton\per\meter}
 \end{align*}
 \section{Combinazioni di carico}
 Al fine di trovare le azioni più incisive nel caso di carico massimo e di carico minimo, si sono valutate le azioni sfavorevoli e favorevoli con diverse disposizione nelle campate. 
 Si elencheranno qui le diverse possibili combinazioni di carico agli stati limite ultimi e di esercizio.
-\begin{align}
+\paragraph*{Zona A}
+\allowdisplaybreaks %Serve per fare andare le equazioni su più pagine. Non spezza gli split perché non hanno questa possibilità (meglio). Per spezzare in un punto specifico \displaybreak
+\begin{align} 
 	\begin{split}
-	SLU^{\text{sfav}}_{\text{cat. B}} &= \gamma_{G1}\cdot G_1 + \gamma_{G2} \cdot G_2 + \gamma_{sovr} \cdot (Q_{terr.} + Q_{int.}) + \gamma_{neve}\cdot Q_{neve}\cdot\psi_{02} + \gamma_{vento}\cdot Q_{vento} \cdot \psi_{03}  \\
-											&= altro \\
-											&= risultato
-	\end{split} \\
+	SLU^{\text{sfav}}_{\text{cat. B}} &= \gamma_{G1}\cdot G_1 + \gamma_{G2} \cdot G_2 + \gamma_{cat. B} \cdot Q_{cat. B} + \gamma_{neve}\cdot Q_{neve}\cdot\psi_{02} + \gamma_{vento}\cdot Q_{vento} \cdot \psi_{03}  \\
+	&= 1.3\cdot\SI{21.35}{} + 1.5\cdot\SI{26.58}{} + 1.5\cdot\SI{19.50}{} + 1.5\cdot\SI{6.672}{}\cdot0.5 + 1.5\cdot\SI{99.99}{}\cdot0.6\\
+	&= \SI{99.99}{\kilo\newton\per\meter}
+	\end{split} \\ 
 	\begin{split}
-	SLU^{\text{sfav}}_{\text{neve}} &= qualcosa \\
-									&= altro \\
-									&= risultato
-	\end{split} \\
+	SLU^{\text{sfav}}_{\text{neve}} &= \gamma_{G1}\cdot G_1 + \gamma_{G2} \cdot G_2 + \gamma_{neve}\cdot Q_{neve} + \gamma_{cat. B} \cdot Q_{cat. B}\cdot\psi_{02} + \gamma_{vento}\cdot Q_{vento} \cdot \psi_{03}  \\
+	&= 1.3\cdot\SI{21.35}{} + 1.5\cdot\SI{26.58}{} + 1.5\cdot\SI{6.672}{} + 1.5\cdot\SI{19.50}{}\cdot0.7 + 1.5\cdot\SI{99.99}{}\cdot0.6\\
+	&= \SI{99.99}{\kilo\newton\per\meter}
+	\end{split} \\ 
 	\begin{split}
-	SLU^{\text{sfav}}_{\text{vento}}&= qualcosa \\
-									&= altro \\
-									&= risultato
-	\end{split} \\
-	SLU^{\text{fav}}	
+	SLU^{\text{sfav}}_{\text{vento}} &= \gamma_{G1}\cdot G_1 + \gamma_{G2} \cdot G_2 + \gamma_{vento}\cdot Q_{vento} + \gamma_{cat. B} \cdot Q_{cat. B}\cdot\psi_{02} + \gamma_{neve}\cdot Q_{neve} \cdot \psi_{03}  \\
+	&= 1.3\cdot\SI{21.35}{} + 1.5\cdot\SI{26.58}{} + 1.5\cdot\SI{99.99}{} + 1.5\cdot\SI{19.50}{}\cdot0.7 + 1.5\cdot\SI{6.672}{}\cdot0.5\\
+	&= \SI{99.99}{\kilo\newton\per\meter}
+	\end{split} \\ 
+	\begin{split}
+	SLU^{\text{fav}} &= \gamma_{G1}\cdot G_1 + \gamma_{G2} \cdot G_2 + \varnothing\\
+	&= 1.0\cdot\SI{21.35}{} + 0.8\cdot\SI{26.58}{}\\
+	&= \SI{42.61}{\kilo\newton\per\meter}	
+	\end{split} \\ 
+	\begin{split}
+	SLE^{\text{rara}}_{\text{cat. B}} &= G_1 + G_2 + Q_{cat. B} + \psi_{02}\cdot Q_{neve} + \psi_{03}\cdot Q_{vento}  \\
+	&= \SI{21.35}{} + \SI{26.58}{} + \SI{19.50}{} + 0.5\cdot\SI{6.672}{} + 0.6\cdot\SI{99.99}{}\\
+	&= \SI{99.99}{\kilo\newton\per\meter}
+	\end{split} \\ 
+	\begin{split}
+	SLE^{\text{rara}}_{\text{neve}} &= G_1 + G_2 + Q_{neve} + \psi_{02}\cdot Q_{cat. B} + \psi_{03}\cdot Q_{vento}  \\
+	&= \SI{21.35}{} + \SI{26.58}{} + \SI{6.672}{} + 0.7\cdot\SI{19.50}{} + 0.6\cdot\SI{99.99}{}\\
+	&= \SI{99.99}{\kilo\newton\per\meter}
+	\end{split} \\ 
+	\begin{split}
+	SLE^{\text{rara}}_{\text{vento}} &= G_1 + G_2 + Q_{vento} + \psi_{02}\cdot Q_{cat. B} + \psi_{03}\cdot Q_{neve}  \\
+	&= \SI{21.35}{} + \SI{26.58}{} + \SI{99.99}{} + 0.7\cdot\SI{19.50}{} + 0.6\cdot\SI{6.672}{}\\
+	&= \SI{99.99}{\kilo\newton\per\meter}
+	\end{split} \\ 
+	\begin{split}
+	SLE^{\text{frequente}}_{\text{cat. B}} &= G_1 + G_2 + \psi_{11}\cdot Q_{cat. B} + \psi_{22}\cdot Q_{neve} + \psi_{23}\cdot Q_{vento}  \\
+	&= \SI{21.35}{} + \SI{26.58}{} + 0.5\cdot\SI{19.50}{} + \varnothing +\varnothing\\
+	&= \SI{57.68}{\kilo\newton\per\meter}
+	\end{split} \\ 
+	\begin{split}
+	SLE^{\text{frequente}}_{\text{neve}} &= G_1 + G_2 + \psi_{11}\cdot Q_{cat. B} + \psi_{22}\cdot Q_{neve} + \psi_{23}\cdot Q_{vento}  \\
+	&= \SI{21.35}{} + \SI{26.58}{} + 0.2\cdot\SI{6.672}{} + 0.3\cdot\SI{19.50}{} + \varnothing \\
+	&= \SI{55.11}{\kilo\newton\per\meter}
+	\end{split} \\ 
+	\begin{split}
+	SLE^{\text{frequente}}_{\text{vento}} &= G_1 + G_2 + \psi_{11}\cdot Q_{vento} + \psi_{22}\cdot Q_{cat. B} + \psi_{23}\cdot Q_{neve}  \\
+	&= \SI{21.35}{} + \SI{26.58}{} + 0.2\cdot\SI{99.99}{} + 0.3\cdot\SI{19.50}{} + \varnothing\\
+	&= \SI{99.99}{\kilo\newton\per\meter}
+	\end{split} \\ 
+	\begin{split}
+	SLE^{\text{quasi perm.}}_{\text{cat. B}} &= G_1 + G_2 + \psi_{21}\cdot Q_{cat. B} + \psi_{22}\cdot Q_{neve} + \psi_{23}\cdot Q_{vento} \\
+	&= \SI{21.35}{} + \SI{26.58}{} + 0.3\cdot\SI{19.50}{} + \varnothing + \varnothing \\
+	&= \SI{53.78}{\kilo\newton\per\meter}
+	\end{split} \\ 
 \end{align}
-
+\paragraph*{Zona B}
 \section{Calcolo azioni sulla trave}
 \section{Criteri addottati}
 \section{Momento}
