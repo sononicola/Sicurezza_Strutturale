@@ -1,0 +1,356 @@
+%!TEX root = ../RelazioneStrutturaleMeoliNicola.tex
+\chapter{Trave P13-P18-Ascensore -- Piano primo}
+\input{IMG/Struttura0.tex}
+\section{Analisi dei carichi trave}
+\subsection{Peso proprio trave}
+La trave è di sezione rettangolare $30 \times \SI{50}{\centi\metre}$ in calcestruzzo armato. 
+La normativa suggerisce di utilizzare un peso specifico $\gamma_{CLS}$ pari a \SI{25.0}{\kilo\newton\per\meter\cubed}. 
+Pertanto il carico lineare risulta 
+\[
+	G_1^{trave} = 0.3 \cdot 0.5 \cdot 25 = \SI{3.75}{\kilo\newton\per\square}
+\]
+
+\subsection{Terrazzo}
+\paragraph*{Carichi permanenti G1}
+Come da progetto il peso del solaio ultimato in travetti tralicciati in latero cemento è pari a $g_1^{ter.}=\SI{3.20}{\kilo\newton\per\meter}$.
+\paragraph*{Carichi permanenti non strutturali G2}
+Il carico distribuito su superficie permanente non strutturale agente sul terrazzo è la somma dei singoli carichi degli strati che compongono la stratigrafia presente.
+\begin{center}
+\begin{tabular}{lS[table-format=2.1]S[table-format=1.2]S[table-format=1.3]}
+	\toprule
+	\multirow{2}{*}{Strato} & \multicolumn{1}{c}{Peso specifico} & \multicolumn{1}{c}{Spessore}& \multicolumn{1}{c}{$g_{2,k}$}\\
+    	   & \multicolumn{1}{c}{$\left[\SI{}{\kilo\newton\per\meter\cubed}\right]$} & \multicolumn{1}{c}{$\left[\SI{}{\meter}\right]$}& \multicolumn{1}{c}{$\left[\SI{}{\kilo\newton\per\square\meter}\right]$}\\
+	\midrule
+	Isolante 	             & 0.5  & 0.15 & 0.075 \\
+	Massetto calcestruzzo 	 & 24.0 & 0.06 & 1.44  \\
+	Pavimento 	             &      &      & 0.50  \\
+	Intonaco intradosso 	 & 20.0 & 0.01 & 0.20 \\
+	\midrule
+	Totale $g_2^{ter.} =$ &&&2.215\\
+	\bottomrule
+\end{tabular}
+\end{center}
+\paragraph*{Categoria B - balconi} Si è supposto che la funzione del terrazzo sia equiparabile strutturalmente a quella di un balcone. 
+La \normaref{Tab. 3.1.II} delle \norma{NTC2018} prevede per i balconi un carico distribuito pari a \SI{4.00}{\kilo\newton\per\square\meter}
+\paragraph*{Neve}
+L'edificio è ubicato in zona 1 ad una quota superiore a \SI{200}{\meter} pertanto il valore di riferimento del carico della neve al suola risulta pari a
+\[
+	q_{sk}=1.39 \, [1+(a_s/728)^2] = \SI{1.626}{\kilo\newton\per\square\meter}
+\]
+
+Si assume che l'edificio sia in zona normale di vento. Pertanto $C_E$ risulta pari a $1$.
+Si assume un coefficiente termico $C_t = 1$ in quanto è assente uno specifico studio riguardo la perdita di calore della costruzione. 
+
+\begin{figure*}[htb]
+\centering
+\includegraphics{IMG/figC3-4-5.pdf}
+\end{figure*}
+Per il calcolo del coefficiente di forma $\mu_i$ la normativa prevede due possibili casi dovuti alla vicinanza della copertura a costruzioni più alte in quanto si genera un accumolo di neve.
+Il primo caso prevede $\mu_1=0.8$ ed è costante data la copertura piana. Nel secondo $\mu_2$ è la somma tra il contributo $\mu_s$ dello scivolamento della neve dalla copertura al piano superiore e pertanto è nullo essendo piana anch'essa. 
+E il contributo $\mu_w$ dovuto al vento che redistribuisce la neve. 
+Questo vale $\mu_w=\frac{b_1 + b_2}{2\,h}$: si hanno quindi due casi dovuti alla diversa dimensione di $b_2$ che vale \SI{6.00}{} e \SI{3.50}{\meter} rispettivamente tra le zone indicate in FIGURA DA METTERE.
+Gli altri termini invece valgono $b_1=\SI{18.00}{\meter}$ e $h=\SI{6.20}{\meter}$. 
+Si ottiene $\mu_w^1=1.935$ e $\mu_w^2=1.734$.
+
+Essendo $l_s=2\,h>b_2$ in entrambi i casi, il coefficiente $\mu$ deve essere interpolato in base alla lunghezza $b_2$. 
+Usando la similitudine dei triangoli come mostrato in FIGURA DA METTERE si ottiene l'altezza del triangolo a distanza $b_2$ dall'edificio e che sommato al valore dell'altezza $\mu_1$ del rettangolo porta al valore del \normaref{caso 2} cercato 
+\begin{align*}
+	\mu_2^{1}=&\mu_1 + \frac{(l_s - b_2^1)\cdot (\mu_w^1-\mu_1)}{l_s} = 1.386\\
+	\mu_2^{2}=&\mu_1 + \frac{(l_s - b_2^2)\cdot (\mu_w^2-\mu_1)}{l_s} =	1.470
+\end{align*}
+Per semplicità si assume ora un valore unico del coefficiente tra i valori delle altezze del trapezio del caso 2 e pari alla media tra $\mu_2$ e $\mu_w$ ottenendo $\mu^1= 1.661$ e $\mu^2=1.602$ e costante.
+
+Il carico dovuto alla neve sul terrazzo risulta infine pari a 
+\begin{align}
+q_s^1 &= q_{sk} \cdot C_E \cdot C_t \cdot \mu^1 = \SI{1.626}{} \cdot 1 \cdot 1 \cdot 1.661 = \SI{2.700}{\kilo\newton\per\square\meter}\\
+q_s^2 &= q_{sk} \cdot C_E \cdot C_t \cdot \mu^2 = \SI{1.626}{} \cdot 1 \cdot 1 \cdot 1.602 = \SI{2.605}{\kilo\newton\per\square\meter}\label{eq:qneve}
+\end{align}
+\paragraph*{Vento} 
+La velocità base di riferimento $V_b$ è data dalla \normaref{3.3.1} delle \norma{NTC2018} e dalla relativa \normaref{Tab. 3.3.1} nel quale il coefficiente di altitudine $c_a$ vale $1$ perché la quota è inferiorie ad $a_0$ e $V_{b,o}=\SI{25}{\meter\per\second}$. 
+Il coefficiente di ritorno $c_r$ della \normaref{formula 3.3.2} è pari a $1$ nel caso di un tempo pari a 50 anni. 
+Pertanto la velocità di riferimento $V_r=\SI{25}{\meter\per\second}$.
+Assumendo una densità dell'aria $\rho$ come consigliato nel \normaref{\S 3.3.6} la pressione cinetica di riferimento vale $q_r =1/2\, \rho\, V_r^2 = \SI{0.39}{\kilo\newton\per\square\meter}$. 
+
+L'edificio è ubicato in provincia di Trento pertanto è in zona urbana ad una quota inferiore a \SI{500}{\meter} ed ad una distanza maggiore di \SI{30}{\kilo\meter} dal mare. 
+Risulta quindi dalla \normaref{Tab. 3.3.III} una classe di rugosità del terreno A e dalla \normaref{Fig. 3.3.2} una classe di esposizione V del sito.
+Pertanto dalla \normaref{Tab. 3.3.II} si ha
+\[
+	k_r=0.23 \qquad z_0=\SI{0.70}{\meter} \quad z_{min}=\SI{12}{\meter}
+\]
+Il coefficiente di topografia $c_t$ è assunto pari a $1$.
+La quota del terrazzo in cui si sta calcolando l'azione del vento è pari a \SI{3.50}{\meter}.
+Il coefficiente di esposizione risulta pari alla \normaref{formula 3.3.7} 
+\[
+	c_e(z)=c_e(z_{min})=k_t^2\cdot c_t \cdot \ln(z/z_0)\cdot[7+c_t\cdot\ln (z/z_0)] = 1.48
+\]
+
+Per il calcolo del coefficiente di pressione $c_p$ si è preso come riferimento il \normaref{\S C3.3.8.1.2} riguardante le coperture piane non essendo elencati nelle normative casi specifici per i terrazzi.
+
+Si sono utilizzati i coefficienti globali in quanto si vuole calcolare la pressione o depressione complessiva esercitata dalla forza del vento. 
+Si avranno due valori di pressione positivi e negativi e che verranno usati per ottenere poi (nel paragrafo \ref{cap:combinazioniCarico}) i valori sfavorevoli e favorevoli.
+
+Per il calcolo del coefficiente $C_{pe}$ la \norma{circolare} propone la distinzione di due zone A e B, la prima avente dimensione $\min\{ b/2\,;\,h\}$ che nel caso in esame è pari a $\min\{\frac{\SI{33.65}{\meter}}{2};\SI{3.50}{\meter}\}=\SI{3.50}{\meter}$.
+Essendo quindi il terrazzo delimitato da entrambe le zone e non volendo calcolare la forza totale del vento ma il carico su superficie, si è considerato nel caso di pressione il coefficiente positivo $C_{pe,B}=+0.2$ da usare nel caso sfavorevole e il coefficiente negativo $C_{pe,B}=-0.20$ da usare nel caso favorevole di depressione.
+Quest'ultimo in realtà a favore di sicurezza in quanto sarebbe da considerare anche il coefficiente $C_{pe,B}=-0.80$.
+
+Il coefficiente dinamico $c_d$ è preso pari ad 1 come suggerito nel capitolo \normaref{\S 3.3.9}
+
+Pertanto il carico dovuto al vento è pari a 
+\[
+	q_w = q_r \cdot c_e \cdot c_p \cdot c_d = \SI{0.39}{\kilo\newton\per\square\meter}\cdot 1.48 \cdot \pm 0.20 \cdot 1= \pm \SI{0.1154}{\kilo\newton\per\square\meter}
+\]
+\subsection{Interno}
+\paragraph*{Carichi permanenti strutturali G1}
+\e presente il medesimo solaio strutturale del terrazzo, pertanto $g_1^{sol.}=\SI{3.20}{\kilo\newton\per\meter}$.
+\paragraph*{Carichi permanenti non strutturali G2} Sono costituiti dal pacchetto non strutturale della stratigrafia del solaio e dalle pareti divisorie interne. 
+Per quanto riguarda le pareti divisorie interne il \normaref{\S 3.1.3} delle \norma{NTC2018} permette di spalmare il peso delle pareti interne in un carico distribuito su tutta la superficie.
+\begin{center}
+\begin{tabular}{lS[table-format=2.1]S[table-format=1.2]S[table-format=1.3]}
+	\toprule
+	\multirow{2}{*}{Strato} & \multicolumn{1}{c}{Peso specifico} & \multicolumn{1}{c}{Spessore}& \multicolumn{1}{c}{$g_{2,k}$}\\
+    	   & \multicolumn{1}{c}{$\left[\SI{}{\kilo\newton\per\meter\cubed}\right]$} & \multicolumn{1}{c}{$\left[\SI{}{\meter}\right]$}& \multicolumn{1}{c}{$\left[\SI{}{\kilo\newton\per\square\meter}\right]$}\\
+	\midrule
+	Tramezze in laterizio 	 	 & 8.00 & 0.08 & 0.64 \\
+	Intonaco interno 	     	 & 20.0 & 0.01 & 0.2 \\
+	Intonaco esterno	         & 20.0 & 0.01 & 0.2 \\
+	\midrule
+	Totale $=$   				 &      &      & 1.04 \\
+	\bottomrule
+\end{tabular}
+\end{center}
+L'altezza delle pareti corrisponde all'altezza di interpiano meno lo spessore del solaio, il che risulta $\SI{3.10}{} - \SI{0.25}{} = \SI{2.85}{\meter}$.
+Il carico lineare delle pareti interne diviene quindi \SI{2.964}{\kilo\newton\per\meter}.
+Utilizzando la normativa si ottiene così un carico di \SI{1.20}{\kilo\newton\per\square\meter}.
+
+Unendo tutti i contributi si ha 
+\begin{center}
+\begin{tabular}{lS[table-format=2.1]S[table-format=1.2]S[table-format=1.3]}
+	\toprule
+	\multirow{2}{*}{Strato} & \multicolumn{1}{c}{Peso specifico} & \multicolumn{1}{c}{Spessore}& \multicolumn{1}{c}{$g_{2,k}$}\\
+    	   & \multicolumn{1}{c}{$\left[\SI{}{\kilo\newton\per\meter\cubed}\right]$} & \multicolumn{1}{c}{$\left[\SI{}{\meter}\right]$}& \multicolumn{1}{c}{$\left[\SI{}{\kilo\newton\per\square\meter}\right]$}\\
+	\midrule
+	Sottofondo CLS alleggerito 	 & 16.0 & 0.08 & 1.28 \\
+	Massetto allettamento 	     & 24.0 & 0.06 & 1.44 \\
+	Pavimento ceramica 	         &      &      & 0.50 \\
+	Intonaco intradosso 	     & 20.0 & 0.01 & 0.20 \\
+	Pareti interne distribuite   &      &      & 1.20 \\
+	\midrule
+	Totale $g_2^{sol.} =$        &      &      & 4.62 \\
+	\bottomrule
+\end{tabular}
+\end{center}
+\paragraph*{Categoria B - Uffici} 
+\subsection{Pareti perimetrali}
+Sono agenti direttamente con un carico lineare al di sopra della trave e si estendono per una altezza pari a quella di interpiano meno la trave.
+Ovvero $\SI{3.10}{} - \SI{0.5}{} = \SI{2.60}{\meter}$.
+\begin{center}
+\begin{tabular}{lS[table-format=2.1]S[table-format=1.2]S[table-format=1.3]}
+	\toprule
+	\multirow{2}{*}{Strato} & \multicolumn{1}{c}{Peso specifico} & \multicolumn{1}{c}{Spessore}& \multicolumn{1}{c}{$g_{2,k}$}\\
+    	   & \multicolumn{1}{c}{$\left[\SI{}{\kilo\newton\per\meter\cubed}\right]$} & \multicolumn{1}{c}{$\left[\SI{}{\meter}\right]$}& \multicolumn{1}{c}{$\left[\SI{}{\kilo\newton\per\square\meter}\right]$}\\
+	\midrule
+	Muratura in laterizio 	 	 & 10   & 0.30 & 3 \\
+	Intonaco interno 	     	 & 20.0 & 0.01 & 0.2 \\
+	Cappotto esterno	         & 0.20 & 0.12 & 0.024 \\
+	\midrule
+	Totale $=$   				 &      &      & 3.224 \\
+	\bottomrule
+\end{tabular}
+\end{center}
+\[
+G_2^{pareti}=\SI{3.224}{\kilo\newton\per\square\meter} \cdot \SI{2.60}{\meter} = \SI{8.382}{\kilo\newton\per\meter}
+\]
+\subsection{Totale carichi agenti sulla trave}
+Vengono ora moltiplicati i risultati appena trovati per le relative lunghezze di influenza. 
+Si è diviso il problema in tre zone: A, B e C come mostrato in FIGURA DA METTERE. 
+Nella zona A e B si ha una zona esterna dell'edificio e una zona interna.
+Pertanto si considera il carico gravante sulla trave in oggetto di calcolo spalmato sui $5/8$ della luce nella zona verso l'esterno e alla metà della luce nella zona sottostante.  
+Diviene rispettivamente pari a 
+\begin{align*}
+	\text{A :}&\qquad L^{ter.}=\frac{5}{8}\cdot\SI{6.00}{\meter}=\SI{3.75}{\meter} \qquad 
+				L^{sol.} \frac{1}{2}\cdot\SI{5.00}{\meter} = \SI{2.50}{\meter}\\
+	\text{B :}&\qquad L^{ter.}=\frac{5}{8}\cdot\SI{3.50}{\meter}=\SI{2.19}{\meter} \qquad 
+				L^{sol.} \frac{1}{2}\cdot\SI{5.00}{\meter} = \SI{2.50}{\meter}\\
+\end{align*}
+Nella zona C invece l'orditura del solaio del terrazzo al primo piano è nell'altra direzioni. 
+A tal proposito si considera una lunghezza di influenza del terrazzo simbolica di \SI{1.00}{\meter}.
+Nella parte sottostante è uguale a quella delle altre zone.
+
+I carichi a metro lineare sotto riportati tenendo conto di tali lunghezze e sono stati combinati con le relativi azioni agenti sulla trave.
+
+Nel caso dei sovraccarichi variabili si è assunta l'ipotesi che essi agiscano sempre insieme. 
+Ovvero quando è possibile che avvenga il valore caratteristico nel terrazzo, questo avverrà anche nel solaio interno.
+\paragraph*{Zona A} 
+\[
+\begin{split}
+G_1^A &=  g_1^{ter.}\cdot L^{ter.} + g_1^{sol.}\cdot L^{sol.} + G_1^{trave} \\
+&= \SI{3.20}{\kilo\newton\per\square\meter}\cdot\SI{3.75}{\meter} + \SI{3.20}{\kilo\newton\per\square\meter}\cdot\SI{2.50}{\meter} + \SI{3.75}{\kilo\newton\per\meter} \\
+&= \SI{23.75}{\kilo\newton\per\meter} \\
+G_2^A &= g_2^{ter.}\cdot L^{ter.} + g_2^{sol.}\cdot L^{sol.} + G_2^{pareti} \\
+&= \SI{2.215}{\kilo\newton\per\square\meter}\cdot\SI{3.75}{\meter} + \SI{4.62}{\kilo\newton\per\square\meter}\cdot\SI{2.50}{\meter} + \SI{8.382}{\kilo\newton\per\meter} \\
+&= \SI{28.24}{\kilo\newton\per\meter}\\
+Q_{cat. B}^A &= q_{cat. B}^{ter.}\cdot L^{ter.} + q_{cat. B}^{sol.}\cdot L^{sol.} \\
+&= \SI{4.00}{\kilo\newton\per\square\meter}\cdot\SI{3.75}{\meter} + \SI{3.00}{\kilo\newton\per\square\meter}\cdot\SI{2.50}{\meter} \\
+&= \SI{22.50}{\kilo\newton\per\meter}\\
+Q_{neve}^A &= q_s \cdot L^{ter.} = \SI{2.700}{\kilo\newton\per\square\meter}\cdot\SI{3.75}{\meter} = \SI{10.13}{\kilo\newton\per\meter}\\
+Q_{vento}^A &= q_w \cdot L^{ter.} = \SI{\pm 0.1154}{\kilo\newton\per\square\meter}\cdot\SI{3.75}{\meter} = \SI{\pm 0.4328}{\kilo\newton\per\meter}
+\end{split}
+\]
+\paragraph*{Zona B} I carichi su superficie sono gli stessi della zona A ma cambiano le lunghezze di riferimento e il carico della neve $q_s$ come visto nella \eqref{eq:qneve}. 
+Si ha perciò
+\begin{align*}
+G_1^B &= \SI{18.76}{\kilo\newton\per\meter}\\
+G_2^B &= \SI{24.78}{\kilo\newton\per\meter}\\
+Q_{cat. B}^B &=  \SI{16.26}{\kilo\newton\per\meter}\\
+Q_{neve}^B &= \SI{5.705}{\kilo\newton\per\meter}\\
+Q_{vento}^B &= \SI{\pm 0.2527}{\kilo\newton\per\meter}
+\end{align*}
+\paragraph*{Zona C} Si hanno gli stessi carichi della zona A con la relativa lunghezza di riferimento
+\begin{align*}
+G_1^C &= \SI{14.95}{\kilo\newton\per\meter}\\
+G_2^C &= \SI{22.15}{\kilo\newton\per\meter}\\
+Q_{cat. B}^C &=  \SI{11.50}{\kilo\newton\per\meter}\\
+Q_{neve}^C &= \SI{2.700}{\kilo\newton\per\meter}\\
+Q_{vento}^C &= \SI{\pm 0.1554}{\kilo\newton\per\meter}
+\end{align*}
+\section{Combinazioni di carico}\label{cap:combinazioniCarico}
+Al fine di trovare le azioni più incisive nel caso di carico massimo e di carico minimo, si sono valutate le azioni sfavorevoli e favorevoli con diverse disposizione nelle campate. 
+Si elencheranno qui le diverse possibili combinazioni di carico agli stati limite ultimi e di esercizio.
+\paragraph*{Zona A}
+\allowdisplaybreaks %Serve per fare andare le equazioni su più pagine. Non spezza gli split perché non hanno questa possibilità (meglio). Per spezzare in un punto specifico \displaybreak
+\begin{align} 
+	\begin{split}
+	SLU^{\text{sfav}}_{\text{cat. B}} &= \gamma_{G1}\cdot G_1 + \gamma_{G2} \cdot G_2 + \gamma_{cat. B} \cdot Q_{cat. B} + \gamma_{neve}\cdot Q_{neve}\cdot\psi_{02} + \gamma_{vento}\cdot Q_{vento} \cdot \psi_{03}  \\
+	&= 1.3\cdot\SI{23.75}{} + 1.5\cdot\SI{28.24}{} + 1.5\cdot\SI{22.50}{} + 1.5\cdot\SI{10.13}{}\cdot0.5 + 1.5\cdot\SI{0.4328}{}\cdot0.6\\
+	&= \SI{115.0}{\kilo\newton\per\meter}
+	\end{split} \\ 
+	\begin{split}
+	SLU^{\text{sfav}}_{\text{neve}} &= \gamma_{G1}\cdot G_1 + \gamma_{G2} \cdot G_2 + \gamma_{neve}\cdot Q_{neve} + \gamma_{cat. B} \cdot Q_{cat. B}\cdot\psi_{02} + \gamma_{vento}\cdot Q_{vento} \cdot \psi_{03}  \\
+	&= 1.3\cdot\SI{23.75}{} + 1.5\cdot\SI{28.24}{} + 1.5\cdot\SI{10.13}{} + 1.5\cdot\SI{22.50}{}\cdot0.7 + 1.5\cdot\SI{0.4328}{}\cdot0.6\\
+	&= \SI{112.4}{\kilo\newton\per\meter}
+	\end{split} \\ 
+	\begin{split}
+	SLU^{\text{sfav}}_{\text{vento}} &= \gamma_{G1}\cdot G_1 + \gamma_{G2} \cdot G_2 + \gamma_{vento}\cdot Q_{vento} + \gamma_{cat. B} \cdot Q_{cat. B}\cdot\psi_{02} + \gamma_{neve}\cdot Q_{neve} \cdot \psi_{03}  \\
+	&= 1.3\cdot\SI{23.75}{} + 1.5\cdot\SI{28.24}{} + 1.5\cdot\SI{0.4328}{} + 1.5\cdot\SI{22.50}{}\cdot0.7 + 1.5\cdot\SI{10.13}{}\cdot0.5\\
+	&= \SI{105.1}{\kilo\newton\per\meter}
+	\end{split} \\ 
+	\begin{split}
+	SLU^{\text{fav}} &= \gamma_{G1}\cdot G_1 + \gamma_{G2} \cdot G_2 + \varnothing\\
+	&= 1.0\cdot\SI{23.75}{} + 0.8\cdot\SI{28.24}{}\\
+	&= \SI{46.34}{\kilo\newton\per\meter}	
+	\end{split} \\ 
+	\begin{split}
+	SLE^{\text{rara}}_{\text{cat. B}} &= G_1 + G_2 + Q_{cat. B} + \psi_{02}\cdot Q_{neve} + \psi_{03}\cdot Q_{vento}  \\
+	&= \SI{23.75}{} + \SI{28.24}{} + \SI{22.50}{} + 0.5\cdot\SI{10.13}{} + 0.6\cdot\SI{0.4328}{}\\
+	&= \SI{79.81}{\kilo\newton\per\meter}
+	\end{split} \\ 
+	\begin{split}
+	SLE^{\text{rara}}_{\text{neve}} &= G_1 + G_2 + Q_{neve} + \psi_{02}\cdot Q_{cat. B} + \psi_{03}\cdot Q_{vento}  \\
+	&= \SI{23.75}{} + \SI{28.24}{} + \SI{10.13}{} + 0.7\cdot\SI{22.50}{} + 0.6\cdot\SI{0.4328}{}\\
+	&= \SI{78.13}{\kilo\newton\per\meter}
+	\end{split} \\ 
+	\begin{split}
+	SLE^{\text{rara}}_{\text{vento}} &= G_1 + G_2 + Q_{vento} + \psi_{02}\cdot Q_{cat. B} + \psi_{03}\cdot Q_{neve}  \\
+	&= \SI{23.75}{} + \SI{28.24}{} + \SI{0.4328}{} + 0.7\cdot\SI{22.50}{} + 0.6\cdot\SI{10.13}{}\\
+	&= \SI{74.25}{\kilo\newton\per\meter}
+	\end{split} \\ 
+	\begin{split}
+	SLE^{\text{frequente}}_{\text{cat. B}} &= G_1 + G_2 + \psi_{11}\cdot Q_{cat. B} + \psi_{22}\cdot Q_{neve} + \psi_{23}\cdot Q_{vento}  \\
+	&= \SI{23.75}{} + \SI{28.24}{} + 0.5\cdot\SI{22.50}{} + \varnothing +\varnothing\\
+	&= \SI{63.24}{\kilo\newton\per\meter}
+	\end{split} \\ 
+	\begin{split}
+	SLE^{\text{frequente}}_{\text{neve}} &= G_1 + G_2 + \psi_{11}\cdot Q_{cat. B} + \psi_{22}\cdot Q_{neve} + \psi_{23}\cdot Q_{vento}  \\
+	&= \SI{23.75}{} + \SI{28.24}{} + 0.2\cdot\SI{10.13}{} + 0.3\cdot\SI{22.50}{} + \varnothing \\
+	&= \SI{60.77}{\kilo\newton\per\meter}
+	\end{split} \\ 
+	\begin{split}
+	SLE^{\text{frequente}}_{\text{vento}} &= G_1 + G_2 + \psi_{11}\cdot Q_{vento} + \psi_{22}\cdot Q_{cat. B} + \psi_{23}\cdot Q_{neve}  \\
+	&= \SI{23.75}{} + \SI{28.24}{} + 0.2\cdot\SI{0.4328}{} + 0.3\cdot\SI{22.50}{} + \varnothing\\
+	&= \SI{58.83}{\kilo\newton\per\meter}
+	\end{split} \\ 
+	\begin{split}
+	SLE^{\text{quasi perm.}}_{\text{cat. B}} &= G_1 + G_2 + \psi_{21}\cdot Q_{cat. B} + \psi_{22}\cdot Q_{neve} + \psi_{23}\cdot Q_{vento} \\
+	&= \SI{23.75}{} + \SI{28.24}{} + 0.3\cdot\SI{22.50}{} + \varnothing + \varnothing \\
+	&= \SI{58.74}{\kilo\newton\per\meter}
+	\end{split} 
+\end{align}
+\paragraph*{Zona B} Analogamente
+\begin{align} 
+	SLU^{\text{sfav}}_{\text{cat. B}}		&= \SI{90.23}{\kilo\newton\per\meter} \\
+	SLU^{\text{sfav}}_{\text{neve}} 		&= \SI{87.42}{\kilo\newton\per\meter} \\
+	SLU^{\text{sfav}}_{\text{vento}} 		&= \SI{83.29}{\kilo\newton\per\meter} \\
+	SLU^{\text{fav}} 						&= \SI{38.58}{\kilo\newton\per\meter} \\	
+	SLE^{\text{rara}}_{\text{cat. B}} 		&= \SI{62.80}{\kilo\newton\per\meter} \\
+	SLE^{\text{rara}}_{\text{neve}}			&= \SI{60.78}{\kilo\newton\per\meter} \\
+	SLE^{\text{rara}}_{\text{vento}} 		&= \SI{58.60}{\kilo\newton\per\meter} \\
+	SLE^{\text{frequente}}_{\text{cat. B}} 	&= \SI{51.67}{\kilo\newton\per\meter} \\
+	SLE^{\text{frequente}}_{\text{neve}} 	&= \SI{49.56}{\kilo\newton\per\meter} \\
+	SLE^{\text{frequente}}_{\text{vento}} 	&= \SI{48.47}{\kilo\newton\per\meter} \\
+	SLE^{\text{quasi perm.}}_{\text{cat. B}}&= \SI{48.42}{\kilo\newton\per\meter}
+\end{align}
+%
+\paragraph*{Zona C} Analogamente
+\begin{align} 
+	SLU^{\text{sfav}}_{\text{cat. B}}		&= \SI{71.94}{\kilo\newton\per\meter} \\
+	SLU^{\text{sfav}}_{\text{neve}} 		&= \SI{68.92}{\kilo\newton\per\meter} \\
+	SLU^{\text{sfav}}_{\text{vento}} 		&= \SI{66.99}{\kilo\newton\per\meter} \\
+	SLU^{\text{fav}} 						&= \SI{32.67}{\kilo\newton\per\meter} \\	
+	SLE^{\text{rara}}_{\text{cat. B}} 		&= \SI{50.04}{\kilo\newton\per\meter} \\
+	SLE^{\text{rara}}_{\text{neve}}			&= \SI{47.94}{\kilo\newton\per\meter} \\
+	SLE^{\text{rara}}_{\text{vento}} 		&= \SI{46.93}{\kilo\newton\per\meter} \\
+	SLE^{\text{frequente}}_{\text{cat. B}} 	&= \SI{42.85}{\kilo\newton\per\meter} \\
+	SLE^{\text{frequente}}_{\text{neve}} 	&= \SI{41.09}{\kilo\newton\per\meter} \\
+	SLE^{\text{frequente}}_{\text{vento}} 	&= \SI{40.58}{\kilo\newton\per\meter} \\
+	SLE^{\text{quasi perm.}}_{\text{cat. B}}&= \SI{40.55}{\kilo\newton\per\meter}
+\end{align}
+
+\section{Calcolo azioni sulla trave}
+\section{Criteri addottati}
+%\input{IMG/Struttura1.tex}
+\input{IMG/Struttura2.tex}
+\section{Momento unitario}
+
+\begin{figure}[p]
+\centering
+\subfloat[][\emph{Campata 1}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/M1_pUnitario.pdf}} \quad
+\subfloat[][\emph{Campata 2}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/M2_pUnitario}} \\
+\subfloat[][\emph{Campata 3}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/M3_pUnitario}} \quad
+\subfloat[][\emph{Campata 4}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/M4_pUnitario}} \\
+\subfloat[][\emph{Campata 5}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/M5_pUnitario.pdf}} \quad
+\subfloat[][\emph{Campata 6}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/M6_pUnitario}} \\
+\subfloat[][\emph{Somma delle campate}]{\includegraphics[width=0.6\textwidth]{../imgExportSage/Mtot_pUnitario}}
+\caption{Diagrammi dei momenti applicando di volta in volta un carico unitario nelle campate e la somma nel diagramma del momento unitario totale}
+\label{fig:MomentiUnitari}
+\end{figure}
+\section{Taglio unitario}
+\begin{figure}[htbp]
+\centering
+\subfloat[][\emph{Campata 1}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/T1_pUnitario.pdf}} \quad
+\subfloat[][\emph{Campata 2}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/T2_pUnitario}} \\
+\subfloat[][\emph{Campata 3}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/T3_pUnitario}} \quad
+\subfloat[][\emph{Campata 4}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/T4_pUnitario}} \\
+\subfloat[][\emph{Campata 5}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/T5_pUnitario.pdf}} \quad
+\subfloat[][\emph{Campata 6}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/T6_pUnitario}} \\
+\subfloat[][\emph{Somma delle campate}]{\includegraphics[width=0.6\textwidth]{../imgExportSage/Ttot_pUnitario}}
+\caption{Diagrammi del taglio applicando di volta in volta un carico unitario nelle campate e la somma nel diagramma del taglio unitario totale}
+\label{fig:TagliUnitari}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\subfloat[][\emph{Sovrapposizione dei diagrammi del momento dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} e con i valori di carico riportati in tabella \ref{} \label{fig:MomentiA_ULS}}]{\includegraphics[width=0.9\textwidth]{../imgExportSage/ULS_ptot.pdf}} \\
+\subfloat[][\emph{Inviluppo dei diagrammi del momento sovrapposti \label{fig:MomentiB_ULS}}]{\includegraphics[width=0.9\textwidth]{../imgExportSage/ULS_pInviluppo.pdf}} 
+\caption{SLU}
+\label{fig:Momenti_ULS}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\subfloat[][\emph{Sovrapposizione dei diagrammi del taglio dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} \label{fig:TagliA_ULS}}]{\includegraphics[width=0.9\textwidth]{../imgExportSage/ULS_Tptot.pdf}} \\
+\subfloat[][\emph{Inviluppo dei diagrammi del taglio sovrapposti \label{fig:TagliB_ULS}}]{\includegraphics[width=0.9\textwidth]{../imgExportSage/ULS_TpInviluppo.pdf}} 
+\caption{SLU}
+\label{fig:Tagli_ULS}
+\end{figure}
+
+

@@ -49,6 +49,7 @@ numbers=left,
 numberstyle=\tiny,}
 \usepackage{lscape}
 \usepackage{multirow}
+\usepackage{import}
 \begin{document}
 \input{CHAPTERS/Titolo.tex}
 \tableofcontents
@@ -70,7 +71,10 @@ numberstyle=\tiny,}
 %
 %
 \newcommand{\norma}[1]{\textsc{#1}}
-\newcommand{\normaref}[1]{\textsl{#1}}
-   \input{CHAPTERS/CHAP1.tex}
-	 %\input{rel2/Relazione2.tex}    
+\newcommand{\normaref}[1]{\texttt{#1}}
+\input{CHAPTERS/CHAP1_Intro.tex}
+\input{CHAPTERS/CHAP2_Trave.tex}
+\input{CHAPTERS/CHAP3_P27.tex}
+\input{CHAPTERS/CHAP4_P36.tex}
+\input{CHAPTERS/APPENDIX1_CodiceTrave.tex}
 \end{document}
