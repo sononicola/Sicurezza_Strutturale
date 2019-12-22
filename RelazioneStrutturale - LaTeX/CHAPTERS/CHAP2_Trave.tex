@@ -4,7 +4,7 @@
 \section{Analisi dei carichi trave}
 \subsection{Peso proprio trave}
 La trave è di sezione rettangolare $30 \times \SI{50}{\centi\metre}$ in calcestruzzo armato. 
-La normativa in \normaref{Tab. 3.1.II} suggerisce di utilizzare un peso specifico $\gamma_{CLS}$ pari a \SI{25.0}{\kilo\newton\per\meter\cubed} per il calcestruzzo armato. 
+La normativa in \normaref{Tab.\,3.1.II} suggerisce di utilizzare un peso specifico $\gamma_{CLS}$ pari a \SI{25.0}{\kilo\newton\per\meter\cubed} per il calcestruzzo armato. 
 Pertanto il carico lineare risulta 
 \[
 	G_1^{trave} = 0.3 \cdot 0.5 \cdot 25 = \SI{3.75}{\kilo\newton\per\meter}
@@ -31,7 +31,7 @@ Il carico distribuito su superficie permanente non strutturale agente sul terraz
 \end{tabular}
 \end{center}
 \paragraph*{Categoria B - balconi} Si è supposto che la funzione del terrazzo sia equiparabile strutturalmente a quella di un balcone. 
-La \normaref{Tab. 3.1.II} delle \norma{NTC2018} prevede per i balconi un carico distribuito pari a \SI{4.00}{\kilo\newton\per\square\meter}
+La \normaref{Tab.\,3.1.II} delle \norma{NTC2018} prevede per i balconi un carico distribuito pari a \SI{4.00}{\kilo\newton\per\square\meter}
 \paragraph*{Neve}
 L'edificio è ubicato in zona 1 ad una quota superiore a \SI{200}{\meter} pertanto il valore di riferimento del carico della neve al suolo risulta pari a
 \[
@@ -46,7 +46,7 @@ Si assume un coefficiente termico $C_t = 1$ in quanto è assente uno specifico s
 \includegraphics{IMG/figC3-4-5.pdf}
 \label{fig:C345}
 \end{figure*}
-Per il calcolo del coefficiente di forma $\mu_i$ la \norma{circolare} in \normaref{Fig. C.3.4.5} (riportata a pagina \pageref{fig:C345}) prevede due possibili casi dovuti alla vicinanza della copertura a costruzioni più alte in quanto si genera un accumolo di neve.
+Per il calcolo del coefficiente di forma $\mu_i$ la \norma{circolare} in \normaref{Fig.\,C.3.4.5} (riportata a pagina \pageref{fig:C345}) prevede due possibili casi dovuti alla vicinanza della copertura a costruzioni più alte in quanto si genera un accumolo di neve.
 Il primo caso prevede $\mu_1=0.8$ ed è costante data la copertura piana. Nel secondo caso $\mu_2$ è la somma tra il contributo $\mu_s$ dello scivolamento della neve dalla copertura al piano superiore e pertanto è nullo essendo piana anch'essa. 
 E il contributo $\mu_w$ dovuto al vento che redistribuisce la neve. 
 Questo vale $\mu_w=\frac{b_1 + b_2}{2\,h}$: si hanno quindi due casi dovuti alla diversa dimensione di $b_2$ che vale \SI{6.00}{} e \SI{3.50}{\meter} rispettivamente tra le zone indicate in FIGURA DA METTERE.
@@ -67,25 +67,25 @@ q_s^1 &= q_{sk} \cdot C_E \cdot C_t \cdot \mu^1 = \SI{1.626}{} \cdot 1 \cdot 1 \
 q_s^2 &= q_{sk} \cdot C_E \cdot C_t \cdot \mu^2 = \SI{1.626}{} \cdot 1 \cdot 1 \cdot 1.602 = \SI{2.605}{\kilo\newton\per\square\meter}\label{eq:qneve}
 \end{align}
 \paragraph*{Vento} \label{cap:ventoTerrazzo} 
-La velocità base di riferimento $V_b$ è data dalla \normaref{3.3.1} delle \norma{NTC2018} e dalla relativa \normaref{Tab. 3.3.1} nel quale il coefficiente di altitudine $c_a$ vale $1$ perché la quota è inferiorie ad $a_0$ e $V_{b,o}=\SI{25}{\meter\per\second}$. 
-Il coefficiente di ritorno $c_r$ della \normaref{formula 3.3.2} è pari a $1$ nel caso di un tempo pari a 50 anni. 
+La velocità base di riferimento $V_b$ è data dalla \normaref{3.3.1} delle \norma{NTC2018} e dalla relativa \normaref{Tab.\,3.3.1} nel quale il coefficiente di altitudine $c_a$ vale $1$ perché la quota è inferiorie ad $a_0$ e $V_{b,o}=\SI{25}{\meter\per\second}$. 
+Il coefficiente di ritorno $c_r$ della \normaref{Formula\,3.3.2} è pari a $1$ nel caso di un tempo pari a 50 anni. 
 Pertanto la velocità di riferimento $V_r=\SI{25}{\meter\per\second}$.
-Assumendo una densità dell'aria $\rho$ come consigliato nel \normaref{\S 3.3.6}, la pressione cinetica di riferimento vale $q_r =1/2\, \rho\, V_r^2 = \SI{0.39}{\kilo\newton\per\square\meter}$. 
+Assumendo una densità dell'aria $\rho$ come consigliato nel \normaref{\S\,3.3.6}, la pressione cinetica di riferimento vale $q_r =1/2\, \rho\, V_r^2 = \SI{0.39}{\kilo\newton\per\square\meter}$. 
 
 L'edificio è ubicato in provincia di Trento pertanto è in zona urbana ad una quota inferiore a \SI{500}{\meter} ed ad una distanza maggiore di \SI{30}{\kilo\meter} dal mare. 
-Risulta quindi dalla \normaref{Tab. 3.3.III} una classe di rugosità del terreno A e dalla \normaref{Fig. 3.3.2} una classe di esposizione V del sito.
-Pertanto dalla \normaref{Tab. 3.3.II} si ha
+Risulta quindi dalla \normaref{Tab.\,3.3.III} una classe di rugosità del terreno A e dalla \normaref{Fig.\,3.3.2} una classe di esposizione V del sito.
+Pertanto dalla \normaref{Tab.\,3.3.II} si ha
 \[
 	k_r=0.23 \qquad z_0=\SI{0.70}{\meter} \quad z_{min}=\SI{12}{\meter}
 \]
 Il coefficiente di topografia $c_t$ è assunto pari a $1$.
 La quota del terrazzo in cui si sta calcolando l'azione del vento è pari a \SI{3.50}{\meter}.
-Il coefficiente di esposizione risulta pari alla \normaref{formula 3.3.7} 
+Il coefficiente di esposizione risulta pari alla \normaref{Formula\,3.3.7} 
 \[
 	c_e(z)=c_e(z_{min})=k_t^2\cdot c_t \cdot \ln(z/z_0)\cdot[7+c_t\cdot\ln (z/z_0)] = 1.48
 \]
 
-Per il calcolo del coefficiente di pressione $c_p$ si è preso come riferimento il \normaref{\S C3.3.8.1.2} riguardante le coperture piane non essendo elencati nelle normative casi specifici per i terrazzi.
+Per il calcolo del coefficiente di pressione $c_p$ si è preso come riferimento il \normaref{\S\,C3.3.8.1.2} riguardante le coperture piane non essendo elencati nelle normative casi specifici per i terrazzi.
 
 Si sono utilizzati i coefficienti globali in quanto si vuole calcolare la pressione o depressione complessiva esercitata dalla forza del vento. 
 Si avranno due valori di pressione positivi e negativi e che verranno usati per ottenere poi (nel paragrafo \ref{cap:combinazioniCarico}) i valori sfavorevoli e favorevoli.
@@ -94,17 +94,17 @@ Per il calcolo del coefficiente $C_{pe}$ la \norma{circolare} propone la distinz
 Essendo quindi il terrazzo delimitato da entrambe le zone e non volendo calcolare la forza totale del vento ma il carico su superficie, si è considerato nel caso di pressione il coefficiente positivo $C_{pe,B}=+0.2$ da usare nel caso sfavorevole e il coefficiente negativo $C_{pe,B}=-0.20$ da usare nel caso favorevole di depressione.
 Quest'ultimo in realtà a favore di sicurezza in quanto sarebbe da considerare anche il coefficiente $C_{pe,A}=-0.80$.
 
-Il coefficiente dinamico $c_d$ è preso pari ad 1 come suggerito nel capitolo \normaref{\S 3.3.9}
+Il coefficiente dinamico $c_d$ è preso pari ad 1 come suggerito nel capitolo \normaref{\S\,3.3.9}
 
 Pertanto il carico dovuto al vento è pari a 
-\[
-	q_w = q_r \cdot c_e \cdot c_p \cdot c_d = \SI{0.39}{\kilo\newton\per\square\meter}\cdot 1.48 \cdot \pm 0.20 \cdot 1= \pm \SI{0.1154}{\kilo\newton\per\square\meter}
-\]
+\begin{equation}
+	q_w = q_r \cdot c_e \cdot c_p \cdot c_d = \SI{0.39}{\kilo\newton\per\square\meter}\cdot 1.48 \cdot \pm 0.20 \cdot 1= \pm \SI{0.1154}{\kilo\newton\per\square\meter}\label{eq:caricoVento}
+\end{equation}
 \subsection{Interno}
 \paragraph*{Carichi permanenti strutturali G1}
 \e presente il medesimo solaio strutturale del terrazzo, pertanto $g_1^{sol.}=\SI{3.20}{\kilo\newton\per\square\meter}$.
 \paragraph*{Carichi permanenti non strutturali G2}\label{cap:g2Trave} Sono costituiti dal pacchetto non strutturale della stratigrafia del solaio e dalle pareti divisorie interne. 
-Per quanto riguarda le pareti divisorie interne il \normaref{\S 3.1.3} delle \norma{NTC2018} permette di spalmare il peso delle pareti interne in un carico distribuito su tutta la superficie.
+Per quanto riguarda le pareti divisorie interne il \normaref{\S\,3.1.3} delle \norma{NTC2018} permette di spalmare il peso delle pareti interne in un carico distribuito su tutta la superficie.
 \begin{center}
 \begin{tabular}{lS[table-format=2.1]S[table-format=1.2]S[table-format=1.3]}
 	\toprule
@@ -140,8 +140,8 @@ Unendo tutti i contributi si ha
 	\bottomrule
 \end{tabular}
 \end{center}
-\paragraph*{Categoria B - Uffici} La \normaref{Tab. 3.1.II} prevede un carico variabile di \SI{3.00}{\kilo\newton\per\square\meter} per la categoria uffici.
-\subsection{Pareti perimetrali}
+\paragraph*{Categoria B - Uffici} La \normaref{Tab.\,3.1.II} prevede un carico variabile di \SI{3.00}{\kilo\newton\per\square\meter} per la categoria uffici.
+\subsection{Pareti perimetrali}\label{cap:paretiPerimetrali}
 Sono agenti direttamente con un carico lineare al di sopra della trave e si estendono per una altezza pari a quella di interpiano meno la trave.
 Ovvero $\SI{3.10}{} - \SI{0.5}{} = \SI{2.60}{\meter}$.
 \begin{center}
@@ -158,9 +158,10 @@ Ovvero $\SI{3.10}{} - \SI{0.5}{} = \SI{2.60}{\meter}$.
 	\bottomrule
 \end{tabular}
 \end{center}
-\[
+\begin{equation}
 G_2^{pareti}=\SI{3.224}{\kilo\newton\per\square\meter} \cdot \SI{2.60}{\meter} = \SI{8.382}{\kilo\newton\per\meter}
-\]
+\label{eq:paretiPerimetrali}
+\end{equation}
 \section{Totale carichi agenti sulla trave}
 Vengono ora moltiplicati i risultati appena trovati per le relative lunghezze di influenza. 
 Si è diviso il problema in tre zone: A, B e C come mostrato in FIGURA DA METTERE. 
@@ -341,23 +342,23 @@ Si elencheranno qui le diverse possibili combinazioni di carico agli stati limit
 \caption{Diagrammi del taglio applicando di volta in volta un carico unitario nelle campate e la somma nel diagramma del taglio unitario totale}
 \label{fig:TagliUnitari}
 \end{figure}
-%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{landscape}
+\subsection*{SLU}
 \begin{figure}[H]
 \centering
-\subfloat[][\emph{Sovrapposizione dei diagrammi del taglio dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} \label{fig:TagliA_ULS}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/ULS_ptot.pdf}} 
-\subfloat[][\emph{Inviluppo dei diagrammi del taglio sovrapposti \label{fig:TagliB_ULS}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/ULS_pInviluppo.pdf}} 
+\subfloat[][\emph{Sovrapposizione dei diagrammi del momento dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} \label{fig:MomentiA_ULS}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/ULS_ptot.pdf}} 
+\subfloat[][\emph{Inviluppo dei diagrammi del momento sovrapposti \label{fig:MomentiB_ULS}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/ULS_pInviluppo.pdf}} 
 \caption{SLU}
-\label{fig:Tagli_ULS}
+\label{fig:Momenti_ULS}
 \end{figure}
 \begin{table}[H]
 \centering
 \caption{boh}
 	\begin{tabular}{lS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
 		\toprule
-		&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}\\
+		&\multicolumn{1}{c}{Nodo 1}&\multicolumn{1}{c}{Camp. 1}&\multicolumn{1}{c}{Nodo 2}&\multicolumn{1}{c}{Camp. 2}&\multicolumn{1}{c}{Nodo 3}&\multicolumn{1}{c}{Camp. 3}&\multicolumn{1}{c}{Nodo 4}&\multicolumn{1}{c}{Camp. 4}&\multicolumn{1}{c}{Nodo 5}&\multicolumn{1}{c}{Camp. 5}&\multicolumn{1}{c}{Nodo 6}&\multicolumn{1}{c}{Camp. 6}&\multicolumn{1}{c}{Nodo 7}\\
 		\midrule
 		$M^{-}$&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99\\
 		$M^{+}$&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99\\
@@ -379,7 +380,145 @@ Si elencheranno qui le diverse possibili combinazioni di carico agli stati limit
 \caption{boh}
 	\begin{tabular}{lS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
 		\toprule
-		&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}&\multicolumn{1}{c}{N1}\\
+		&\multicolumn{1}{c}{Nodo 1}&\multicolumn{1}{c}{Camp. 1}&\multicolumn{1}{c}{Nodo 2}&\multicolumn{1}{c}{Camp. 2}&\multicolumn{1}{c}{Nodo 3}&\multicolumn{1}{c}{Camp. 3}&\multicolumn{1}{c}{Nodo 4}&\multicolumn{1}{c}{Camp. 4}&\multicolumn{1}{c}{Nodo 5}&\multicolumn{1}{c}{Camp. 5}&\multicolumn{1}{c}{Nodo 6}&\multicolumn{1}{c}{Camp. 6}&\multicolumn{1}{c}{Nodo 7}\\
+		\midrule
+		$M^{-}$&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99\\
+		$M^{+}$&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+\end{landscape}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage	
+\begin{landscape}
+\subsection*{SLE -- Rara}
+\begin{figure}[H]
+\centering
+\subfloat[][\emph{Sovrapposizione dei diagrammi del momento dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} \label{fig:MomentiA_SLScharacteristic}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLScharacteristic_ptot.pdf}} 
+\subfloat[][\emph{Inviluppo dei diagrammi del momento sovrapposti \label{fig:MomentiB_SLScharacteristic}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLScharacteristic_pInviluppo.pdf}} 
+\caption{SLU}
+\label{fig:Momenti_SLScharacteristic}
+\end{figure}
+\begin{table}[H]
+\centering
+\caption{boh}
+	\begin{tabular}{lS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
+		\toprule
+		&\multicolumn{1}{c}{Nodo 1}&\multicolumn{1}{c}{Camp. 1}&\multicolumn{1}{c}{Nodo 2}&\multicolumn{1}{c}{Camp. 2}&\multicolumn{1}{c}{Nodo 3}&\multicolumn{1}{c}{Camp. 3}&\multicolumn{1}{c}{Nodo 4}&\multicolumn{1}{c}{Camp. 4}&\multicolumn{1}{c}{Nodo 5}&\multicolumn{1}{c}{Camp. 5}&\multicolumn{1}{c}{Nodo 6}&\multicolumn{1}{c}{Camp. 6}&\multicolumn{1}{c}{Nodo 7}\\
+		\midrule
+		$M^{-}$&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99\\
+		$M^{+}$&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+\end{landscape}
+\clearpage
+\begin{landscape}
+\begin{figure}[H]
+\centering
+\subfloat[][\emph{Sovrapposizione dei diagrammi del taglio dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} \label{fig:TagliA_SLScharacteristic}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLScharacteristic_Tptot.pdf}} 
+\subfloat[][\emph{Inviluppo dei diagrammi del taglio sovrapposti \label{fig:TagliB_SLScharacteristic}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLScharacteristic_TpInviluppo.pdf}} 
+\caption{SLU}
+\label{fig:Tagli_SLScharacteristic}
+\end{figure}
+\begin{table}[H]
+\centering
+\caption{boh}
+	\begin{tabular}{lS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
+		\toprule
+		&\multicolumn{1}{c}{Nodo 1}&\multicolumn{1}{c}{Camp. 1}&\multicolumn{1}{c}{Nodo 2}&\multicolumn{1}{c}{Camp. 2}&\multicolumn{1}{c}{Nodo 3}&\multicolumn{1}{c}{Camp. 3}&\multicolumn{1}{c}{Nodo 4}&\multicolumn{1}{c}{Camp. 4}&\multicolumn{1}{c}{Nodo 5}&\multicolumn{1}{c}{Camp. 5}&\multicolumn{1}{c}{Nodo 6}&\multicolumn{1}{c}{Camp. 6}&\multicolumn{1}{c}{Nodo 7}\\
+		\midrule
+		$M^{-}$&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99\\
+		$M^{+}$&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+\end{landscape}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage	
+\begin{landscape}
+\subsection*{SLE -- Frequente}
+\begin{figure}[H]
+\centering
+\subfloat[][\emph{Sovrapposizione dei diagrammi del momento dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} \label{fig:MomentiA_SLSfrequent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSfrequent_ptot.pdf}} 
+\subfloat[][\emph{Inviluppo dei diagrammi del momento sovrapposti \label{fig:MomentiB_SLSfrequent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSfrequent_pInviluppo.pdf}} 
+\caption{SLU}
+\label{fig:Momenti_SLSfrequent}
+\end{figure}
+\begin{table}[H]
+\centering
+\caption{boh}
+	\begin{tabular}{lS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
+		\toprule
+		&\multicolumn{1}{c}{Nodo 1}&\multicolumn{1}{c}{Camp. 1}&\multicolumn{1}{c}{Nodo 2}&\multicolumn{1}{c}{Camp. 2}&\multicolumn{1}{c}{Nodo 3}&\multicolumn{1}{c}{Camp. 3}&\multicolumn{1}{c}{Nodo 4}&\multicolumn{1}{c}{Camp. 4}&\multicolumn{1}{c}{Nodo 5}&\multicolumn{1}{c}{Camp. 5}&\multicolumn{1}{c}{Nodo 6}&\multicolumn{1}{c}{Camp. 6}&\multicolumn{1}{c}{Nodo 7}\\
+		\midrule
+		$M^{-}$&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99\\
+		$M^{+}$&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+\end{landscape}
+\clearpage
+\begin{landscape}
+\begin{figure}[H]
+\centering
+\subfloat[][\emph{Sovrapposizione dei diagrammi del taglio dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} \label{fig:TagliA_SLSfrequent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSfrequent_Tptot.pdf}} 
+\subfloat[][\emph{Inviluppo dei diagrammi del taglio sovrapposti \label{fig:TagliB_SLSfrequent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSfrequent_TpInviluppo.pdf}} 
+\caption{SLU}
+\label{fig:Tagli_SLSfrequent}
+\end{figure}
+\begin{table}[H]
+\centering
+\caption{boh}
+	\begin{tabular}{lS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
+		\toprule
+		&\multicolumn{1}{c}{Nodo 1}&\multicolumn{1}{c}{Camp. 1}&\multicolumn{1}{c}{Nodo 2}&\multicolumn{1}{c}{Camp. 2}&\multicolumn{1}{c}{Nodo 3}&\multicolumn{1}{c}{Camp. 3}&\multicolumn{1}{c}{Nodo 4}&\multicolumn{1}{c}{Camp. 4}&\multicolumn{1}{c}{Nodo 5}&\multicolumn{1}{c}{Camp. 5}&\multicolumn{1}{c}{Nodo 6}&\multicolumn{1}{c}{Camp. 6}&\multicolumn{1}{c}{Nodo 7}\\
+		\midrule
+		$M^{-}$&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99\\
+		$M^{+}$&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+\end{landscape}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage	
+\begin{landscape}
+\subsection*{SLE -- Quasi Permanente}
+\begin{figure}[H]
+\centering
+\subfloat[][\emph{Sovrapposizione dei diagrammi del momento dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} \label{fig:MomentiA_SLSquasiPermanent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSquasiPermanent_ptot.pdf}} 
+\subfloat[][\emph{Inviluppo dei diagrammi del momento sovrapposti \label{fig:MomentiB_SLSquasiPermanent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSquasiPermanent_pInviluppo.pdf}} 
+\caption{SLU}
+\label{fig:Momenti_SLSquasiPermanent}
+\end{figure}
+\begin{table}[H]
+\centering
+\caption{boh}
+	\begin{tabular}{lS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
+		\toprule
+		&\multicolumn{1}{c}{Nodo 1}&\multicolumn{1}{c}{Camp. 1}&\multicolumn{1}{c}{Nodo 2}&\multicolumn{1}{c}{Camp. 2}&\multicolumn{1}{c}{Nodo 3}&\multicolumn{1}{c}{Camp. 3}&\multicolumn{1}{c}{Nodo 4}&\multicolumn{1}{c}{Camp. 4}&\multicolumn{1}{c}{Nodo 5}&\multicolumn{1}{c}{Camp. 5}&\multicolumn{1}{c}{Nodo 6}&\multicolumn{1}{c}{Camp. 6}&\multicolumn{1}{c}{Nodo 7}\\
+		\midrule
+		$M^{-}$&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99\\
+		$M^{+}$&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+\end{landscape}
+\clearpage
+\begin{landscape}
+\begin{figure}[H]
+\centering
+\subfloat[][\emph{Sovrapposizione dei diagrammi del taglio dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} \label{fig:TagliA_SLSquasiPermanent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSquasiPermanent_Tptot.pdf}} 
+\subfloat[][\emph{Inviluppo dei diagrammi del taglio sovrapposti \label{fig:TagliB_SLSquasiPermanent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSquasiPermanent_TpInviluppo.pdf}} 
+\caption{SLU}
+\label{fig:Tagli_SLSquasiPermanent}
+\end{figure}
+\begin{table}[H]
+\centering
+\caption{boh}
+	\begin{tabular}{lS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
+		\toprule
+		&\multicolumn{1}{c}{Nodo 1}&\multicolumn{1}{c}{Camp. 1}&\multicolumn{1}{c}{Nodo 2}&\multicolumn{1}{c}{Camp. 2}&\multicolumn{1}{c}{Nodo 3}&\multicolumn{1}{c}{Camp. 3}&\multicolumn{1}{c}{Nodo 4}&\multicolumn{1}{c}{Camp. 4}&\multicolumn{1}{c}{Nodo 5}&\multicolumn{1}{c}{Camp. 5}&\multicolumn{1}{c}{Nodo 6}&\multicolumn{1}{c}{Camp. 6}&\multicolumn{1}{c}{Nodo 7}\\
 		\midrule
 		$M^{-}$&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99\\
 		$M^{+}$&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99&999.99\\
