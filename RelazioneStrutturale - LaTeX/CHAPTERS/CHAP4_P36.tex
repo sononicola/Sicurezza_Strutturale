@@ -61,11 +61,20 @@ Si ha
 \end{center}
 A cui vanno sommai i valori delle pareti perimetrali al piano Primo e Secondo.
 \section{Aree di influenza}
-In FIGURA DA METTERE vengono riportate schematicamente le aree di influenza agenti sul pilastro suddivise per ogni piano e con le relative quote. 
+\begin{figure}[htbp]
+\centering
+\subfloat[][\emph{Piano Terra}]{\includegraphics[trim=17.5cm 6.5cm 7cm 9.7cm,clip,frame]{IMG/Piante/Piante-PT.pdf}} \quad
+\subfloat[][\emph{Piano Primo}]{\includegraphics[trim=17.5cm 6.5cm 7cm 9.7cm,clip,frame]{IMG/Piante/Piante-P1.pdf}} \\
+\subfloat[][\emph{Piano Secondo}]{\includegraphics[trim=17.5cm 6.5cm 7cm 9.7cm,clip,frame]{IMG/Piante/Piante-P2.pdf}} \quad
+\subfloat[][\emph{Piano Copertura}]{\includegraphics[trim=17.5cm 6.5cm 7cm 9.7cm,clip,frame]{IMG/Piante/Piante-PC.pdf}} \\
+\caption{Indicazione delle aree di influenza gravanti sul pilastro P36}
+\label{fig:AreeInfluenzaP36}
+\end{figure}
+In figura \ref{fig:AreeInfluenzaP36} vengono riportate schematicamente le aree di influenza agenti sul pilastro suddivise per ogni piano e con le relative quote. 
 Si è considerato una lunghezza dimezzata nel caso la trave gravante sul pilastro fosse una trave interna, mentre una ripartizione di $3/8$ e $5/8$ nel caso di trave perimetrale. 
 Si è considerato inoltre una striscia di influenza pari a \SI{1}{\meter} quando il solaio non fosse direttamente agente sulla trave ma parallelo ad essa. 
 Sebbene ci siano delle aree sovrapposte si è voluto mantenerle a favore di sicurezza.
-Vale la stessa nomenclatura utilizzata in precedenza.
+Vale la stessa nomenclatura utilizzata in precedenza mostrata in figura \ref{fig:NomenclaturaAree} a pagina \pageref{fig:NomenclaturaAree}.
 
 In aggiunta alle aree è presente la quota parte delle pareti perimetrali che scaricano sul pilastro. 
 Si è considerato metà della lunghezza del lato, per entrambi i lati.
@@ -216,18 +225,21 @@ Prendendo il valore massimo tra le combinazioni e sommando si ottengono i massim
 	SLE^{\text{quasi perm.}}_{\text{P36}}&= \SI{637.2}{\kilo\newton}
 \end{align*}
 \e possibile infine riportarne l'andamento su di un grafico.
-
-\begin{tikzpicture}\centering
+\begin{figure}[htb]
+\centering
+\begin{tikzpicture}
 	\begin{axis}[
-	    height=10cm,
-		width=15cm,
+		/pgf/number format/.cd,
+        use comma,      %virgola nei decimali
+        1000 sep={\,},  %uno spazio nelle migliaia
+	    height=12cm,
+		width=\textwidth,
 		grid=major,
-		xlabel=Sforzo assiale cumulato,
-		ylabel=Altezza edificio,
+		xlabel=Sforzo assiale cumulato \si{[\kilo\newton]},
+		ylabel=Altezza edificio \si{[\meter]},
 		ytick = {9.7,6.6,3.5,0,-2.75},
-		title=Confronto tra soluzione analitica e soluzione FEM per l'elemento finito CPS8
     ]
-	\addplot[color=red] coordinates {
+	\addplot[thick,color=red] coordinates {
 	   (0000.00, 9.7  )
 	   (0049.48, 9.7  )
 	   (0058.55, 6.6  )
@@ -238,7 +250,7 @@ Prendendo il valore massimo tra le combinazioni e sommando si ottengono i massim
 	   (1140.07, 0    )
 	   (1148.11, -2.75)
 	};
-	\addplot[color=blue] coordinates {
+	\addplot[thick,color=blue] coordinates {
 	   (0000.00,  9.7  )
 	   (0035.15, 9.7  )
 	   (0042.12, 6.6  )
@@ -249,7 +261,7 @@ Prendendo il valore massimo tra le combinazioni e sommando si ottengono i massim
 	   (0786.30, 0    )
 	   (0798.68, -2.75)
 	};
-	\addplot[color=green] coordinates {
+	\addplot[thick,color=green] coordinates {
 	   (0000.00,  9.7  )
 	   (0030.15, 9.7  )
 	   (0037.13, 6.6  )
@@ -260,7 +272,7 @@ Prendendo il valore massimo tra le combinazioni e sommando si ottengono i massim
 	   (0660.16, 0    )
 	   (0672.54, -2.75)
 	};
-	\addplot[color=magenta] coordinates {
+	\addplot[thick,color=magenta] coordinates {
 	   (0000.00,  9.7  )
 	   (0028.98, 9.7  )
 	   (0035.96, 6.6  )
@@ -271,5 +283,9 @@ Prendendo il valore massimo tra le combinazioni e sommando si ottengono i massim
 	   (0624.84, 0    )
 	   (0637.22, -2.75)
 	};
+	\legend{SLU,SLE Rara,SLE Frequente,SLE Quasi Permanente}
 	\end{axis}
 \end{tikzpicture}
+\caption{Andamento dello sforzo assiale agente sul pilastro P36 in funzione dell'altezza}
+%\label{fig:}
+\end{figure}

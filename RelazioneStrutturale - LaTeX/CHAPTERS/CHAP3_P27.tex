@@ -72,11 +72,21 @@ Si ottiene perciò lo stesso valore dell'equazione \eqref{eq:caricoVento}:
 	q_w^{PC} = q_r \cdot c_e \cdot c_p \cdot c_d = \SI{0.39}{\kilo\newton\per\square\meter}\cdot 1.48 \cdot  0.20 \cdot 1= \SI{0.1154}{\kilo\newton\per\square\meter}
 \]
 \section{Aree di influenza}
-In FIGURA DA METTERE vengono riportate schematicamente le aree di influenza agenti sul pilastro suddivise per ogni piano e con le relative quote. 
+\begin{figure}[htbp]
+\centering
+\subfloat[][\emph{Piano Terra}]{\includegraphics[trim=17.5cm 6.5cm 7cm 9.7cm,clip,frame]{IMG/Piante/Piante-PT.pdf}} \quad
+\subfloat[][\emph{Piano Primo}]{\includegraphics[trim=17.5cm 6.5cm 7cm 9.7cm,clip,frame]{IMG/Piante/Piante-P1.pdf}} \\
+\subfloat[][\emph{Piano Secondo}]{\includegraphics[trim=17.5cm 6.5cm 7cm 9.7cm,clip,frame]{IMG/Piante/Piante-P2.pdf}} \quad
+\subfloat[][\emph{Piano Copertura}]{\includegraphics[trim=17.5cm 6.5cm 7cm 9.7cm,clip,frame]{IMG/Piante/Piante-PC.pdf}} \\
+\caption{Indicazione delle aree di influenza gravanti sul pilastro P27}
+\label{fig:AreeInfluenzaP27}
+\end{figure}
+In figura \ref{fig:AreeInfluenzaP27} vengono riportate schematicamente le aree di influenza agenti sul pilastro suddivise per ogni piano e con le relative quote. 
 Si è considerato una lunghezza dimezzata nel caso la trave gravante sul pilastro fosse una trave interna, mentre una ripartizione di $3/8$ e $5/8$ nel caso di trave perimetrale. 
 Si è considerato inoltre una striscia di influenza pari a \SI{1}{\meter} quando il solaio non fosse direttamente agente sulla trave ma parallelo ad essa. 
 Sebbene ci siano delle aree sovrapposte si è voluto mantenerle a favore di sicurezza.
-Si riporta infine i FIGURA DA METTERE la nomenclatura utilizzata per distinguere le quattro diverse aree e che viene utilizzata nei calcoli presenti nelle tabelle del paragrafo successivo.
+\input{IMG/NomenclaturaAree.tex}
+Si riporta infine in figura \ref{fig:NomenclaturaAree} la nomenclatura utilizzata per distinguere le quattro diverse aree e che viene utilizzata nei calcoli presenti nelle tabelle del paragrafo successivo.
 \section{Totale carichi agenti sul pilastro}
 Nelle tabelle sottostanti si riportano i carichi assiali ottenuti moltiplicando le estensioni delle aree i-esime per i relativi carichi di superficie appena trovati che sono agenti su di esse, sommati poi al peso proprio del pilastro relativo a quel piano ed eventualmente alle pareti perimetrali se presenti.
 I valori di carico infine riportati sono quelli che verranno usati nel paragrafo successivo per la determinazione delle combinazioni di carico.
@@ -279,17 +289,22 @@ Prendendo il valore massimo tra le combinazioni e sommando si ottengono i massim
 \e possibile inoltre fare un grafico l'andamento dei carichi in funzione della quota dell'edificio.
 Si ha infatti un valore costante nel passaggio tra un piano e l'altro e un andamento lineare crescente lungo l'altezza del pilastro dovuto al peso proprio crescente.
 
-\begin{tikzpicture}\centering
+\begin{figure}[htb]
+\centering
+\begin{tikzpicture}
 	\begin{axis}[
-	    height=10cm,
-		width=15cm,
+		/pgf/number format/.cd,
+        use comma,      %virgola nei decimali
+        1000 sep={\,},  %uno spazio nelle migliaia
+	    height=12cm,
+		width=\textwidth,
 		grid=major,
-		xlabel=Sforzo assiale cumulato,
-		ylabel=Altezza edificio,
+		xlabel=Sforzo assiale cumulato \si{[\kilo\newton]},
+		ylabel=Altezza edificio \si{[\meter]},
 		ytick = {9.7,6.6,3.5,0,-2.75},
-		title=Confronto tra soluzione analitica e soluzione FEM per l'elemento finito CPS8
+		%title=Titolo se serve
     ]
-	\addplot[color=red] coordinates {
+	\addplot[thick,color=red] coordinates {
 	   (0000.00, 9.7  )
 	   (0266.64, 9.7  )
 	   (0275.70, 6.6  )
@@ -300,7 +315,7 @@ Si ha infatti un valore costante nel passaggio tra un piano e l'altro e un andam
 	   (1408.49, 0    )
 	   (1416.53, -2.75)
 	};
-	\addplot[color=blue] coordinates {
+	\addplot[thick,color=blue] coordinates {
 	   (0000.00,  9.7  )
 	   (0189.40, 9.7  )
 	   (0196.37, 6.6  )
@@ -311,7 +326,7 @@ Si ha infatti un valore costante nel passaggio tra un piano e l'altro e un andam
 	   (0978.41, 0    )
 	   (0990.79, -2.75)
 	};
-	\addplot[color=green] coordinates {
+	\addplot[thick,color=green] coordinates {
 	   (0000.00,  9.7  )
 	   (0162.48, 9.7  )
 	   (0169.45, 6.6  )
@@ -322,7 +337,7 @@ Si ha infatti un valore costante nel passaggio tra un piano e l'altro e un andam
 	   (0865.58, 0    )
 	   (0877.96, -2.75)
 	};
-	\addplot[color=magenta] coordinates {
+	\addplot[thick,color=magenta] coordinates {
 	   (0000.00,  9.7  )
 	   (0156.17, 9.7  )
 	   (0163.15, 6.6  )
@@ -333,92 +348,9 @@ Si ha infatti un valore costante nel passaggio tra un piano e l'altro e un andam
 	   (0826.74, 0    )
 	   (0839.11, -2.75)
 	};
+	\legend{SLU,SLE Rara,SLE Frequente,SLE Quasi Permanente}
 	\end{axis}
 \end{tikzpicture}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\caption{Andamento dello sforzo assiale agente sul pilastro P27 in funzione dell'altezza}
+%\label{fig:}
+\end{figure}

@@ -1,6 +1,21 @@
 %!TEX root = ../RelazioneStrutturaleMeoliNicola.tex
 \chapter{Trave P13-P18-Ascensore -- Piano primo}
+\section{Schema strutturale trave}
+\begin{figure}[htbp]
+\centering
+\includegraphics[trim=5.8cm 10.6cm 9.5cm 4.1cm,clip,frame,width=\textwidth]{IMG/Piante/Piante-Trave.pdf} 
+\caption{Pianta strutturale del solaio del piano Primo con indicazione della trave in oggetto}
+\label{fig:travePianta}
+\end{figure}
 \input{IMG/Struttura0.tex}
+La trave in cui occorre eseguire il calcolo delle sollecitazioni è quella evidenziata nella figura \ref{fig:travePianta}. 
+\e possibile vedere come sia una trave sviluppata in altezza agente dal pilastro P13 fino alla gabbia di calcestruzzo in cui è presente l'ascensore.
+
+La trave è esplicabile tramite lo schema strutturale rappresentato in figura \ref{fig:Struttura0}.
+A sinistra del pilastro P13 è presente una trave a spessore. 
+Per questo motivo si è adottato un vincolo a semplice appoggio in quanto le due travi a sinistra e destra del pilastro, avendo differente rigidità strutturale, non possono avere continuità di momento.
+All'estremità di destra si è adottato invece un vincolo a incastro.
+Questo dovuto all'ipotesi di infinita rigidità del vano ascensore.
 \section{Analisi dei carichi trave}
 \subsection{Peso proprio trave}
 La trave è di sezione rettangolare $30 \times \SI{50}{\centi\metre}$ in calcestruzzo armato. 
@@ -33,6 +48,11 @@ Il carico distribuito su superficie permanente non strutturale agente sul terraz
 \paragraph*{Categoria B - balconi} Si è supposto che la funzione del terrazzo sia equiparabile strutturalmente a quella di un balcone. 
 La \normaref{Tab.\,3.1.II} delle \norma{NTC2018} prevede per i balconi un carico distribuito pari a \SI{4.00}{\kilo\newton\per\square\meter}
 \paragraph*{Neve}
+\begin{figure*}[htbp]
+\centering
+\includegraphics{IMG/figC3-4-5.pdf}
+\label{fig:C345}
+\end{figure*}
 L'edificio è ubicato in zona 1 ad una quota superiore a \SI{200}{\meter} pertanto il valore di riferimento del carico della neve al suolo risulta pari a
 \[
 	q_{sk}=1.39 \, [1+(a_s/728)^2] = \SI{1.626}{\kilo\newton\per\square\meter}
@@ -41,20 +61,22 @@ L'edificio è ubicato in zona 1 ad una quota superiore a \SI{200}{\meter} pertan
 Si assume che l'edificio sia in zona normale di vento. Pertanto $C_E$ risulta pari a $1$.
 Si assume un coefficiente termico $C_t = 1$ in quanto è assente uno specifico studio riguardo la perdita di calore della costruzione. 
 
-\begin{figure*}[htb]
-\centering
-\includegraphics{IMG/figC3-4-5.pdf}
-\label{fig:C345}
-\end{figure*}
 Per il calcolo del coefficiente di forma $\mu_i$ la \norma{circolare} in \normaref{Fig.\,C.3.4.5} (riportata a pagina \pageref{fig:C345}) prevede due possibili casi dovuti alla vicinanza della copertura a costruzioni più alte in quanto si genera un accumolo di neve.
 Il primo caso prevede $\mu_1=0.8$ ed è costante data la copertura piana. Nel secondo caso $\mu_2$ è la somma tra il contributo $\mu_s$ dello scivolamento della neve dalla copertura al piano superiore e pertanto è nullo essendo piana anch'essa. 
 E il contributo $\mu_w$ dovuto al vento che redistribuisce la neve. 
-Questo vale $\mu_w=\frac{b_1 + b_2}{2\,h}$: si hanno quindi due casi dovuti alla diversa dimensione di $b_2$ che vale \SI{6.00}{} e \SI{3.50}{\meter} rispettivamente tra le zone indicate in FIGURA DA METTERE.
+Questo vale $\mu_w=\frac{b_1 + b_2}{2\,h}$: si hanno quindi due casi dovuti alla diversa dimensione di $b_2$ che vale \SI{6.00}{} e \SI{3.50}{\meter} rispettivamente tra le zone indicate in figura \ref{fig:traveZonaAB}.
+\begin{figure}[htbp]
+\centering
+\includegraphics[trim=5.8cm 13cm 9.5cm 4.1cm,clip,frame,width=\textwidth]{IMG/Piante/Piante-AB.pdf} 
+\caption{Suddivisione del terrazzo in base alla lunghezza $b_2$ diversa}
+\label{fig:traveZonaAB}
+\end{figure}
 Gli altri termini invece valgono $b_1=\SI{18.00}{\meter}$ e $h=\SI{6.20}{\meter}$. 
 Si ottiene $\mu_w^1=1.935$ e $\mu_w^2=1.734$.
 
 Essendo $l_s=2\,h>b_2$ in entrambi i casi, il coefficiente $\mu$ deve essere interpolato in base alla lunghezza $b_2$. 
-Usando la similitudine dei triangoli come mostrato in FIGURA DA METTERE si ottiene l'altezza del triangolo a distanza $b_2$ dall'edificio e che sommato al valore dell'altezza $\mu_1$ del rettangolo porta al valore del \normaref{caso 2} cercato 
+\input{IMG/TriangoliSimiliNeve.tex}
+Usando la similitudine dei triangoli come mostrato in figura \ref{fig:TriangoliSimiliNeve} si ottiene l'altezza del triangolo a distanza $b_2$ dall'edificio e che sommato al valore dell'altezza $\mu_1$ del rettangolo porta al valore del \normaref{caso 2} cercato 
 \begin{align*}
 	\mu_2^{1}=&\mu_1 + \frac{(l_s - b_2^1)\cdot (\mu_w^1-\mu_1)}{l_s} = 1.386\\
 	\mu_2^{2}=&\mu_1 + \frac{(l_s - b_2^2)\cdot (\mu_w^2-\mu_1)}{l_s} =	1.470
@@ -164,7 +186,13 @@ G_2^{pareti}=\SI{3.224}{\kilo\newton\per\square\meter} \cdot \SI{2.60}{\meter} =
 \end{equation}
 \section{Totale carichi agenti sulla trave}
 Vengono ora moltiplicati i risultati appena trovati per le relative lunghezze di influenza. 
-Si è diviso il problema in tre zone: A, B e C come mostrato in FIGURA DA METTERE. 
+Si è diviso il problema in tre zone: A, B e C come mostrato in figura \ref{fig:traveZonaABC}. 
+\begin{figure}[tbp]
+\centering
+\includegraphics[trim=5.8cm 13cm 9.5cm 4.1cm,clip,frame,width=\textwidth]{IMG/Piante/Piante-ABC.pdf} 
+\caption{Suddivisione del terrazzo in base alle tre diverse lunghezze di influenza.}
+\label{fig:traveZonaABC}
+\end{figure}
 Nella zona A e B si ha una zona esterna dell'edificio e una zona interna.
 Pertanto si considera il carico gravante sulla trave in oggetto di calcolo spalmato sui $5/8$ della luce nella zona verso l'esterno e alla metà della luce nella zona sottostante.  
 Diviene rispettivamente pari a 
@@ -311,37 +339,172 @@ Si elencheranno qui le diverse possibili combinazioni di carico agli stati limit
 	SLE^{\text{quasi perm.}}_{\text{cat. B}}&= \SI{40.55}{\kilo\newton\per\meter}
 \end{align*}
 
-\section{Calcolo azioni sulla trave}
-\section{Criteri adottati}
-%\input{IMG/Struttura1.tex}
-\input{IMG/Struttura2.tex}
-\section{Momento unitario}
+\section{Risoluzione della trave mediante metodo delle forze}
+\begin{equation}
+\mathbf{Flex^{gen}}=
+\begin{bmatrix}
+\frac{L_{1}}{3 \, \mathit{EJ}} & \frac{L_{1}}{6 \, \mathit{EJ}} & 0 & 0 & 0 & 0 & 0 \\
+\frac{L_{1}}{6 \, \mathit{EJ}} & \frac{L_{1} + L_{2}}{3 \, \mathit{EJ}} & \frac{L_{2}}{6 \, \mathit{EJ}} & 0 & 0 & 0 & 0 \\
+0 & \frac{L_{2}}{6 \, \mathit{EJ}} & \frac{L_{2} + L_{3}}{3 \, \mathit{EJ}} & \frac{L_{3}}{6 \, \mathit{EJ}} & 0 & 0 & 0 \\
+0 & 0 & \frac{L_{3}}{6 \, \mathit{EJ}} & \frac{L_{3} + L_{4}}{3 \, \mathit{EJ}} & \frac{L_{4}}{6 \, \mathit{EJ}} & 0 & 0 \\
+0 & 0 & 0 & \frac{L_{4}}{6 \, \mathit{EJ}} & \frac{L_{4} + L_{5}}{3 \, \mathit{EJ}} & \frac{L_{5}}{6 \, \mathit{EJ}} & 0 \\
+0 & 0 & 0 & 0 & \frac{L_{5}}{6 \, \mathit{EJ}} & \frac{L_{5} + L_{6}}{3 \, \mathit{EJ}} & \frac{L_{6}}{6 \, \mathit{EJ}} \\
+0 & 0 & 0 & 0 & 0 & \frac{L_{6}}{6 \, \mathit{EJ}} & \frac{L_{6}}{3 \, \mathit{EJ}}
+\end{bmatrix}
+\end{equation}
+Avendo a sinistra l'appoggio e non l'incastro; va eliminata la prima riga e la prima colonna in quanto il momento è nullo.
+Si ottiene perciò la matrice ridotta
+\begin{equation}
+\mathbf{Flex^{rid}}=
+\begin{bmatrix}
+\frac{L_{1} + L_{2}}{3 \, \mathit{EJ}} & \frac{L_{2}}{6 \, \mathit{EJ}} & 0 & 0 & 0 & 0 \\
+\frac{L_{2}}{6 \, \mathit{EJ}} & \frac{L_{2} + L_{3}}{3 \, \mathit{EJ}} & \frac{L_{3}}{6 \, \mathit{EJ}} & 0 & 0 & 0 \\
+0 & \frac{L_{3}}{6 \, \mathit{EJ}} & \frac{L_{3} + L_{4}}{3 \, \mathit{EJ}} & \frac{L_{4}}{6 \, \mathit{EJ}} & 0 & 0 \\
+0 & 0 & \frac{L_{4}}{6 \, \mathit{EJ}} & \frac{L_{4} + L_{5}}{3 \, \mathit{EJ}} & \frac{L_{5}}{6 \, \mathit{EJ}} & 0 \\
+0 & 0 & 0 & \frac{L_{5}}{6 \, \mathit{EJ}} & \frac{L_{5} + L_{6}}{3 \, \mathit{EJ}} & \frac{L_{6}}{6 \, \mathit{EJ}} \\
+0 & 0 & 0 & 0 & \frac{L_{6}}{6 \, \mathit{EJ}} & \frac{L_{6}}{3 \, \mathit{EJ}}
+\end{bmatrix}
+\end{equation}
+che sostituendo le grandezze in gioco diviene
+\begin{equation}
+\mathbf{F}=
+\begin{bmatrix}
+0.0000254 & 7.62 \times 10^{-6} & 0.000 & 0.000 & 0.000 & 0.000 \\
+7.62 \times 10^{-6} & 0.0000288 & 6.78 \times 10^{-6} & 0.000 & 0.000 & 0.000 \\
+0.000 & 6.78 \times 10^{-6} & 0.0000305 & 8.47 \times 10^{-6} & 0.000 & 0.000 \\
+0.000 & 0.000 & 8.47 \times 10^{-6} & 0.0000378 & 0.0000104 & 0.000 \\
+0.000 & 0.000 & 0.000 & 0.0000104 & 0.0000344 & 6.78 \times 10^{-6} \\
+0.000 & 0.000 & 0.000 & 0.000 & 6.78 \times 10^{-6} & 0.0000136
+\end{bmatrix}
+\end{equation}.
 
+Il generico vettore dei carichi per una struttura a 6 campate è
+\begin{equation}
+\mathbf{p^{gen}}=
+\begin{bmatrix}
+\frac{L_{1}^{3} Q_{1}}{24 \, \mathit{EJ}} \\
+\frac{L_{1}^{3} Q_{1} + L_{2}^{3} Q_{2}}{24 \, \mathit{EJ}} \\
+\frac{L_{2}^{3} Q_{2} + L_{3}^{3} Q_{3}}{24 \, \mathit{EJ}} \\
+\frac{L_{3}^{3} Q_{3} + L_{4}^{3} Q_{4}}{24 \, \mathit{EJ}} \\
+\frac{L_{4}^{3} Q_{4} + L_{5}^{3} Q_{5}}{24 \, \mathit{EJ}} \\
+\frac{L_{5}^{3} Q_{5} + L_{6}^{3} Q_{6}}{24 \, \mathit{EJ}} \\
+\frac{L_{6}^{3} Q_{6}}{24 \, \mathit{EJ}}
+\end{bmatrix}
+\end{equation}
+a cui anche qui va adattato al caso senza incastro, divenendo
+\begin{equation}
+\mathbf{p^{rid}}=
+\begin{bmatrix}
+\frac{L_{1}^{3} Q_{1} + L_{2}^{3} Q_{2}}{24 \, \mathit{EJ}} \\
+\frac{L_{2}^{3} Q_{2} + L_{3}^{3} Q_{3}}{24 \, \mathit{EJ}} \\
+\frac{L_{3}^{3} Q_{3} + L_{4}^{3} Q_{4}}{24 \, \mathit{EJ}} \\
+\frac{L_{4}^{3} Q_{4} + L_{5}^{3} Q_{5}}{24 \, \mathit{EJ}} \\
+\frac{L_{5}^{3} Q_{5} + L_{6}^{3} Q_{6}}{24 \, \mathit{EJ}} \\
+\frac{L_{6}^{3} Q_{6}}{24 \, \mathit{EJ}}
+\end{bmatrix}
+\end{equation}
+
+Per trovare i vettori incognita va risolto il sistema i-esimo ponendo $1$ al carico nella i-esima campata e zero nelle altre.
+Nel caso della prima si ha la situazione visibile in figura \ref{fig:Struttura1} in cui si sono riportati i momenti generatosi dal carico unitario nella prima campata. 
+Risolvendo il sistema si ha 
+\input{IMG/Struttura1.tex}
+\begin{equation}
+\mathbf{F\cdot x_1 = P^{rid}_{1}}
+\end{equation}
+\begin{equation}
+\mathbf{x_1}=
+\begin{bmatrix}
+x_{11}\\
+x_{21}\\
+x_{31}\\
+x_{41}\\
+x_{51}\\
+x_{61}\\
+x_{71}\\
+\end{bmatrix} =
+\begin{bmatrix}
+0\\
+-0.491338912574569 \\
+0.137796375248564 \\
+-0.0328783181600082 \\
+0.00812484517717799 \\
+-0.00273048075626473 \\
+0.00136524037813237
+\end{bmatrix}
+\end{equation} 
+al quale è stato re-inserito il primo termine zero per ottenere la dimensione del vettore globale.
+Lo stesso procedimento lo si adotta per le altre campate ottenendo 7 vettori $x_i$.
+
+\e ora possibile calcolare le reazioni vincolari in ogni nodo aventi la generica forma
+\begin{equation}
+r_{j,i}=\frac{x_{j+1,i}-x_{j,i}}{L_i}+Q_i\cdot\frac{L_i}{2}
+\end{equation} dove $Q_i$ vale $1$ solo quando si sta considerando la campata in cui è agente il carico ($i=j$) altrimenti vale zero, mentre con $j$ si è indicato il numero del nodo.
+
+Nel caso della prima campata si ha
+\begin{equation}
+\mathbf{r_1}=
+\begin{bmatrix}
+\frac{x_{2,1}-x_{1,1}}{L_1}+\frac{Q_1\cdot L_1}{2} \\
+\frac{x_{3,1}-x_{2,1}}{L_2} \\
+\frac{x_{4,1}-x_{3,1}}{L_3} \\
+\frac{x_{5,1}-x_{4,1}}{L_4} \\
+\frac{x_{6,1}-x_{5,1}}{L_5} \\
+\frac{x_{7,1}-x_{6,1}}{L_6} \\
+\end{bmatrix} =
+\begin{bmatrix}
+1.33622036247514 \\
+0.139807841738474 \\
+-0.0426686733521431 \\
+0.00820063266743724 \\
+-0.00176509364771426 \\
+0.00102393028359927
+\end{bmatrix}
+\end{equation}
+
+Con tali valori è possibile ora creare una funzione per il momento e una per il taglio relativi alla prima campata e successivamente a tutte le altre.
+Tali funzioni sono funzioni a gradini che esistono solo nel tratto di campata considerato.
+Unendo le funzioni di ciascuna campata si ottengono le due funzioni totali per il momento e il taglio.
+Si rimanda al codice presente negli allegati per vedere come sono state create.
+
+Creando un grafico delle due funzioni relative alla prima campata si ottiene l'andamento visibile in figura \ref{fig:MomentiUnitariA} e in figura \ref{fig:TagliUnitariA}.
+
+Eseguendo queste operazioni per le altre campate è possibile risolvere appieno la struttura e sommando i risultati per ciascuna di esse si ottiene l'andamento totale di figura \ref{fig:MomentiUnitariTOT} e \ref{fig:TagliUnitariTOT} che rappresenta la condizione di carico unitario in tutte le campate.
 \begin{figure}[p]
 \centering
-\subfloat[][\emph{Campata 1}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/M1_pUnitario.pdf}} \quad
+\subfloat[][\emph{Campata 1\label{fig:MomentiUnitariA}}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/M1_pUnitario.pdf}} \quad
 \subfloat[][\emph{Campata 2}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/M2_pUnitario}} \\
 \subfloat[][\emph{Campata 3}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/M3_pUnitario}} \quad
 \subfloat[][\emph{Campata 4}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/M4_pUnitario}} \\
 \subfloat[][\emph{Campata 5}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/M5_pUnitario.pdf}} \quad
 \subfloat[][\emph{Campata 6}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/M6_pUnitario}} \\
-\subfloat[][\emph{Somma delle campate}]{\includegraphics[width=0.6\textwidth]{../imgExportSage/Mtot_pUnitario}}
+\subfloat[][\emph{Somma delle campate\label{fig:MomentiUnitariTOT}}]{\includegraphics[width=0.6\textwidth]{../imgExportSage/Mtot_pUnitario}}
 \caption{Diagrammi dei momenti applicando di volta in volta un carico unitario nelle campate e la somma nel diagramma del momento unitario totale}
 \label{fig:MomentiUnitari}
 \end{figure}
-\section{Taglio unitario}
 \begin{figure}[htbp]
 \centering
-\subfloat[][\emph{Campata 1}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/T1_pUnitario.pdf}} \quad
+\subfloat[][\emph{Campata 1\label{fig:TagliUnitariA}}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/T1_pUnitario.pdf}} \quad
 \subfloat[][\emph{Campata 2}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/T2_pUnitario}} \\
 \subfloat[][\emph{Campata 3}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/T3_pUnitario}} \quad
 \subfloat[][\emph{Campata 4}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/T4_pUnitario}} \\
 \subfloat[][\emph{Campata 5}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/T5_pUnitario.pdf}} \quad
 \subfloat[][\emph{Campata 6}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/T6_pUnitario}} \\
-\subfloat[][\emph{Somma delle campate}]{\includegraphics[width=0.6\textwidth]{../imgExportSage/Ttot_pUnitario}}
+\subfloat[][\emph{Somma delle campate\label{fig:TagliUnitariTOT}}]{\includegraphics[width=0.6\textwidth]{../imgExportSage/Ttot_pUnitario}}
 \caption{Diagrammi del taglio applicando di volta in volta un carico unitario nelle campate e la somma nel diagramma del taglio unitario totale}
 \label{fig:TagliUnitari}
 \end{figure}
+\section{Massimizzazione delle sollecitazioni}
+Per massimizzare le azioni di momento e taglio in tutti i punti voluti della trave occorre creare diverse situazioni di carico in modo da ottenere l'effetto massimo in campata o appoggio.
+I carichi utilizzati sono quelli sfavorevoli e favorevoli visti in precedenza a pagina \pageref{cap:combinazioniCarico}.
+Le diverse  disposizioni dei carico utilizzate sono visibili in figura \ref{fig:Struttura2} a pagina \pageref{fig:Struttura2}.
+Nelle didascalie sono inoltre indicati gli effetti che quella disposizione vuole riprodurre.
+\input{IMG/Struttura2.tex}
+
+Mediante tali valori è possibile moltiplicare i momenti e tagli unitari per ciascun carico, per ogni campata ed ottenere il diagramma finale.
+In figura \ref{fig:Momenti_ULS} e successive è possibile visionare tali diagrammi per le 4 combinazioni SLU e SLE. 
+A corredo dei diagrammi sono presenti inoltre delle tabelle che riassumono i valori più significativi.
+
+Infine tra gli allegati della presente relazione, in particolare a pagina \pageref{cap:codiceTrave}, è inserito il codice \emph{SageMath} con il quale sono stati risolti i qui sopra visti passaggi.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage	
 \begin{landscape}

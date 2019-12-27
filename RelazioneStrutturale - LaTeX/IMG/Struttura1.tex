@@ -1,0 +1,57 @@
+%!TEX root = ../RelazioneStrutturaleMeoliNicola.tex
+\begin{figure}[htb]
+\centering
+\begin{tikzpicture}
+\scaling{0.55};
+	\point{n1}{00.00}{0};
+	\point{n2}{03.00}{0};
+	\point{n3}{07.50}{0};
+	\point{n4}{11.50}{0};
+	\point{n5}{16.50}{0};
+	\point{n6}{22.65}{0};
+	\point{n7}{26.65}{0};
+	\beam{2}{n1}{n2}[0][1];
+	\beam{2}{n2}{n3}[1][1];
+	\beam{2}{n3}{n4}[1][1];
+	\beam{2}{n4}{n5}[1][1];
+	\beam{2}{n5}{n6}[1][1];
+	\beam{2}{n6}{n7}[1][1];
+	\begin{scope}[scale=0.6]
+		\support{1}{n1};
+		\support{1}{n2};
+		\support{1}{n3};
+		\support{1}{n4};
+		\support{1}{n5};
+		\support{1}{n6};
+		\support{3}{n7}[90];
+	\end{scope};	
+	\begin{scope}[color=myGray]
+		\lineload{1}{n1}{n2};	
+		\notation{1}{n2}{$Q_1=1$}[above=13mm];
+	\end{scope}	
+	\begin{scope}[color=red]
+		\load{2}{n1}[280][130][0.70];
+		\load{3}{n2}[130][130][0.70];
+		\load{2}{n2}[280][130][0.70];
+		\load{3}{n3}[130][130][0.70];
+		\load{2}{n3}[280][130][0.70];
+		\load{3}{n4}[130][130][0.70];
+		\load{2}{n4}[280][130][0.70];
+		\load{3}{n5}[130][130][0.70];
+		\load{2}{n5}[280][130][0.70];
+		\load{3}{n6}[130][130][0.70];
+		\load{2}{n6}[280][130][0.70];
+		\load{3}{n7}[130][130][0.70];
+		\notation{1}{n1}{$x_{11}$}[below=8mm];
+		\notation{1}{n2}{$x_{21}$}[below=8mm];
+		\notation{1}{n3}{$x_{31}$}[below=8mm];
+		\notation{1}{n4}{$x_{41}$}[below=8mm];
+		\notation{1}{n5}{$x_{51}$}[below=8mm];
+		\notation{1}{n6}{$x_{61}$}[below=8mm];
+		\notation{1}{n7}{$x_{71}$}[below=8mm];
+	\end{scope}
+	\dimensioning{1}{n1}{n2}{-1.5}[$\SI{3.00}{\meter}$];
+\end{tikzpicture}
+\caption{Metodo delle forze applicato alla prima campata con carico unitario}
+\label{fig:Struttura1}
+\end{figure}

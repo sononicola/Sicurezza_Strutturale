@@ -5,12 +5,14 @@ left=2.5cm,right=2.5cm,heightrounded,bindingoffset=0mm}
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
 \usepackage{graphicx}
+\usepackage[export]{adjustbox}%Per il Frame attron ole immagini
 \usepackage{subfig}
 \usepackage{amsmath,amsfonts,amssymb,braket,mathrsfs}
 \usepackage{float}
 \usepackage{tabularx,booktabs}
 \usepackage{hyperref}
 \usepackage{epsfig}
+\usepackage{pdfpages} %Per gli allegati
 %\usepackage{minipage}
 \usepackage[output-decimal-marker={,}]{siunitx}
 \usepackage{tikz}
@@ -35,11 +37,12 @@ left=2.5cm,right=2.5cm,heightrounded,bindingoffset=0mm}
 	\titlespacing*{\subsection}{0pt}{0.10in}{0.02in}
 %serve per la didascalia di tabelle e figure:
 \usepackage{caption}
-\captionsetup{tableposition=top,figureposition=bottom,font=small}\captionsetup{format=hang,labelfont={bf,color=pantone186}} %didascalie a più righe allineate e il nome in grassetto
+\captionsetup{tableposition=top,figureposition=bottom,font=small}\captionsetup{format=hang,labelfont={bf,color=myGray}} %didascalie a più righe allineate e il nome in grassetto
 %non viene allineato a sinistra se la didascalia è corta una sola riga. PERCHé??
 \usepackage{xcolor}
 %serve per mettere il codice con lo sfondo grigio chiaro
 \definecolor{pantone186}{RGB}{206, 17, 38} %il colore del logo UNITN
+\definecolor{myGray}{gray}{0.5} %più basso più scuro è
 \usepackage{listings} 
 \lstset{basicstyle=\scriptsize\ttfamily,
 backgroundcolor=\color{lightgray},%
