@@ -61,7 +61,7 @@ L'edificio è ubicato in zona 1 ad una quota superiore a \SI{200}{\meter} pertan
 Si assume che l'edificio sia in zona normale di vento. Pertanto $C_E$ risulta pari a $1$.
 Si assume un coefficiente termico $C_t = 1$ in quanto è assente uno specifico studio riguardo la perdita di calore della costruzione. 
 
-Per il calcolo del coefficiente di forma $\mu_i$ la \norma{circolare} in \normaref{Fig.\,C.3.4.5} (riportata a pagina \pageref{fig:C345}) prevede due possibili casi dovuti alla vicinanza della copertura a costruzioni più alte in quanto si genera un accumolo di neve.
+Per il calcolo del coefficiente di forma $\mu_i$ la \norma{circolare} in \normaref{Fig.\,C.3.4.5} prevede due possibili casi dovuti alla vicinanza della copertura a costruzioni più alte in quanto si genera un accumolo di neve.
 Il primo caso prevede $\mu_1=0.8$ ed è costante data la copertura piana. Nel secondo caso $\mu_2$ è la somma tra il contributo $\mu_s$ dello scivolamento della neve dalla copertura al piano superiore e pertanto è nullo essendo piana anch'essa. 
 E il contributo $\mu_w$ dovuto al vento che redistribuisce la neve. 
 Questo vale $\mu_w=\frac{b_1 + b_2}{2\,h}$: si hanno quindi due casi dovuti alla diversa dimensione di $b_2$ che vale \SI{6.00}{} e \SI{3.50}{\meter} rispettivamente tra le zone indicate in figura \ref{fig:traveZonaAB}.
@@ -112,7 +112,12 @@ Per il calcolo del coefficiente di pressione $c_p$ si è preso come riferimento 
 Si sono utilizzati i coefficienti globali in quanto si vuole calcolare la pressione o depressione complessiva esercitata dalla forza del vento. 
 Si avranno due valori di pressione positivi e negativi e che verranno usati per ottenere poi (nel paragrafo \ref{cap:combinazioniCarico}) i valori sfavorevoli e favorevoli.
 
-Per il calcolo del coefficiente $C_{pe}$ la \norma{circolare} propone la distinzione di due zone A e B, la prima avente dimensione $\min\{ b/2\,;\,h\}$ che nel caso in esame è pari a $\min\{\frac{\SI{33.65}{\meter}}{2};\SI{3.50}{\meter}\}=\SI{3.50}{\meter}$.
+\begin{figure*}[htbp]
+\centering
+\includegraphics{IMG/figC3-3-5.pdf}
+\label{fig:C335}
+\end{figure*}
+Per il calcolo del coefficiente $C_{pe}$ la \norma{circolare} in \normaref{Fig.\,C.3.3.5} e \normaref{Tab.\,C.3.3.III} propone la distinzione di due zone A e B, la prima avente dimensione $\min\{ b/2\,;\,h\}$ che nel caso in esame è pari a $\min\{\frac{\SI{33.65}{\meter}}{2};\SI{3.50}{\meter}\}=\SI{3.50}{\meter}$.
 Essendo quindi il terrazzo delimitato da entrambe le zone e non volendo calcolare la forza totale del vento ma il carico su superficie, si è considerato nel caso di pressione il coefficiente positivo $C_{pe,B}=+0.2$ da usare nel caso sfavorevole e il coefficiente negativo $C_{pe,B}=-0.20$ da usare nel caso favorevole di depressione.
 Quest'ultimo in realtà a favore di sicurezza in quanto sarebbe da considerare anche il coefficiente $C_{pe,A}=-0.80$.
 
@@ -340,6 +345,16 @@ Si elencheranno qui le diverse possibili combinazioni di carico agli stati limit
 \end{align*}
 
 \section{Risoluzione della trave mediante metodo delle forze}
+Essendo la struttura composta da travi continue è stato adottato il metodo delle forze per la sua risoluzione, il quale risulta essere estremamente comodo in queste tipologie di strutture iperstatiche.
+La struttura originaria iperstatica viene degradata ad un sistema di travi isostatico equivalente mediante l'inserimento di incognite iperstatiche, che nel caso di travi continue sono tutte di tipo rotazionale.
+
+Si tratta quindi di imporre l'uguaglianza delle rotazioni tra una trave e l'altra e di risolvere l'equazione di congruenza trovando i termini incogniti.
+In termini matriciali si ha il seguente sistema da risolvere:
+\begin{equation}
+\mathbf{Flex}\cdot\mathbf{A} =  \mathbf{P}.
+\end{equation}
+
+Per un generico sistema di trave continua a $6$ campate la matrice di flessibilità assume la forma
 \begin{equation}
 \mathbf{Flex^{gen}}=
 \begin{bmatrix}
@@ -352,7 +367,7 @@ Si elencheranno qui le diverse possibili combinazioni di carico agli stati limit
 0 & 0 & 0 & 0 & 0 & \frac{L_{6}}{6 \, \mathit{EJ}} & \frac{L_{6}}{3 \, \mathit{EJ}}
 \end{bmatrix}
 \end{equation}
-Avendo a sinistra l'appoggio e non l'incastro; va eliminata la prima riga e la prima colonna in quanto il momento è nullo.
+avendo però a sinistra l'appoggio e non l'incastro; va eliminata la prima riga e la prima colonna in quanto il momento è nullo.
 Si ottiene perciò la matrice ridotta
 \begin{equation}
 \mathbf{Flex^{rid}}=
@@ -365,7 +380,7 @@ Si ottiene perciò la matrice ridotta
 0 & 0 & 0 & 0 & \frac{L_{6}}{6 \, \mathit{EJ}} & \frac{L_{6}}{3 \, \mathit{EJ}}
 \end{bmatrix}
 \end{equation}
-che sostituendo le grandezze in gioco diviene
+in cui sostituendo le grandezze in gioco diviene
 \begin{equation}
 \mathbf{F}=
 \begin{bmatrix}
@@ -404,15 +419,15 @@ a cui anche qui va adattato al caso senza incastro, divenendo
 \end{bmatrix}
 \end{equation}
 
+\input{IMG/Struttura1.tex} 
 Per trovare i vettori incognita va risolto il sistema i-esimo ponendo $1$ al carico nella i-esima campata e zero nelle altre.
-Nel caso della prima si ha la situazione visibile in figura \ref{fig:Struttura1} in cui si sono riportati i momenti generatosi dal carico unitario nella prima campata. 
+Nel caso della prima si ha la situazione visibile in figura \ref{fig:Struttura1} in cui si sono riportati i momenti generatosi dal carico unitario nella prima campata.
 Risolvendo il sistema si ha 
-\input{IMG/Struttura1.tex}
 \begin{equation}
 \mathbf{F\cdot x_1 = P^{rid}_{1}}
 \end{equation}
 \begin{equation}
-\mathbf{x_1}=
+\hookrightarrow \, \mathbf{x_1}=
 \begin{bmatrix}
 x_{11}\\
 x_{21}\\
@@ -461,13 +476,10 @@ Nel caso della prima campata si ha
 \end{bmatrix}
 \end{equation}
 
-Con tali valori è possibile ora creare una funzione per il momento e una per il taglio relativi alla prima campata e successivamente a tutte le altre.
-Tali funzioni sono funzioni a gradini che esistono solo nel tratto di campata considerato.
+\e possibile ora creare delle funzioni a gradini che esistono solo nel tratto di campata considerato e che esplicano i valori delle rotazioni e delle reazioni vincolari a sinistra e destra di ogni nodo.
 Unendo le funzioni di ciascuna campata si ottengono le due funzioni totali per il momento e il taglio.
-Si rimanda al codice presente negli allegati per vedere come sono state create.
 
-Creando un grafico delle due funzioni relative alla prima campata si ottiene l'andamento visibile in figura \ref{fig:MomentiUnitariA} e in figura \ref{fig:TagliUnitariA}.
-
+Creando un grafico relativo alla prima campata si ottiene l'andamento visibile in figura \ref{fig:MomentiUnitariA} e in figura \ref{fig:TagliUnitariA}.
 Eseguendo queste operazioni per le altre campate è possibile risolvere appieno la struttura e sommando i risultati per ciascuna di esse si ottiene l'andamento totale di figura \ref{fig:MomentiUnitariTOT} e \ref{fig:TagliUnitariTOT} che rappresenta la condizione di carico unitario in tutte le campate.
 \begin{figure}[p]
 \centering
@@ -478,10 +490,10 @@ Eseguendo queste operazioni per le altre campate è possibile risolvere appieno 
 \subfloat[][\emph{Campata 5}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/M5_pUnitario.pdf}} \quad
 \subfloat[][\emph{Campata 6}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/M6_pUnitario}} \\
 \subfloat[][\emph{Somma delle campate\label{fig:MomentiUnitariTOT}}]{\includegraphics[width=0.6\textwidth]{../imgExportSage/Mtot_pUnitario}}
-\caption{Diagrammi dei momenti applicando di volta in volta un carico unitario nelle campate e la somma nel diagramma del momento unitario totale}
+\caption{Diagrammi del momento applicando di volta in volta un carico unitario nelle campate e la somma nel diagramma del momento unitario totale}
 \label{fig:MomentiUnitari}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[p]
 \centering
 \subfloat[][\emph{Campata 1\label{fig:TagliUnitariA}}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/T1_pUnitario.pdf}} \quad
 \subfloat[][\emph{Campata 2}]{\includegraphics[width=0.45\textwidth]{../imgExportSage/T2_pUnitario}} \\
@@ -493,32 +505,33 @@ Eseguendo queste operazioni per le altre campate è possibile risolvere appieno 
 \caption{Diagrammi del taglio applicando di volta in volta un carico unitario nelle campate e la somma nel diagramma del taglio unitario totale}
 \label{fig:TagliUnitari}
 \end{figure}
+\clearpage %Altrimenti c'era una pagina con 4 righe
 \section{Massimizzazione delle sollecitazioni}
 Per massimizzare le azioni di momento e taglio in tutti i punti voluti della trave occorre creare diverse situazioni di carico in modo da ottenere l'effetto massimo in campata o appoggio.
-I carichi utilizzati sono quelli sfavorevoli e favorevoli visti in precedenza a pagina \pageref{cap:combinazioniCarico}.
-Le diverse  disposizioni dei carico utilizzate sono visibili in figura \ref{fig:Struttura2} a pagina \pageref{fig:Struttura2}.
-Nelle didascalie sono inoltre indicati gli effetti che quella disposizione vuole riprodurre.
+I carichi utilizzati sono quelli sfavorevoli e favorevoli visti in precedenza a pagina \pageref{cap:combinazioniCarico}, i quali sono stati moltiplicati alle funzioni di momento e taglio relative ai carichi unitari.
+Le diverse  disposizioni dei carichi utilizzate sono visibili in figura \ref{fig:Struttura2} a pagina \pageref{fig:Struttura2}.
+Nelle didascalie sono inoltre indicati gli effetti che ciascuna disposizione vuole riprodurre.
 \input{IMG/Struttura2.tex}
 
-Mediante tali valori è possibile moltiplicare i momenti e tagli unitari per ciascun carico, per ogni campata ed ottenere il diagramma finale.
+Si ottiene così il diagramma finale cercato comprendente le azioni che la struttura di partenza genera.
 In figura \ref{fig:Momenti_ULS} e successive è possibile visionare tali diagrammi per le 4 combinazioni SLU e SLE. 
 A corredo dei diagrammi sono presenti inoltre delle tabelle che riassumono i valori più significativi.
 
-Infine tra gli allegati della presente relazione, in particolare a pagina \pageref{cap:codiceTrave}, è inserito il codice \emph{SageMath} con il quale sono stati risolti i qui sopra visti passaggi.
+Infine tra gli allegati della presente relazione, in particolare a pagina \pageref{cap:codiceTrave}, è inserito il codice scritto in \emph{SageMath} con il quale sono stati risolti i qui sopra visti passaggi.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage	
 \begin{landscape}
 \subsection*{SLU}
 \begin{figure}[H]
 \centering
-\subfloat[][\emph{Sovrapposizione dei diagrammi del momento dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} \label{fig:MomentiA_ULS}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/ULS_ptot.pdf}} 
+\subfloat[][\emph{Sovrapposizione dei diagrammi del momento dovuta alle diverse casistiche di carico illustrate in figura \ref{fig:Struttura2} \label{fig:MomentiA_ULS}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/ULS_ptot.pdf}} 
 \subfloat[][\emph{Inviluppo dei diagrammi del momento sovrapposti \label{fig:MomentiB_ULS}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/ULS_pInviluppo.pdf}} 
-\caption{SLU}
+\caption{Diagrammi del momento generati con combinazione di carico SLU}
 \label{fig:Momenti_ULS}
 \end{figure}
 \begin{table}[H]
 \centering
-\caption{boh}
+\caption{Valori del momento con combinazione di carico SLU nei punti più significativi della struttura}
 	\begin{tabular}{lS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
 		\toprule
 		&\multicolumn{1}{c}{Nodo 1}&\multicolumn{1}{c}{Camp. 1}&\multicolumn{1}{c}{Nodo 2}&\multicolumn{1}{c}{Camp. 2}&\multicolumn{1}{c}{Nodo 3}&\multicolumn{1}{c}{Camp. 3}&\multicolumn{1}{c}{Nodo 4}&\multicolumn{1}{c}{Camp. 4}&\multicolumn{1}{c}{Nodo 5}&\multicolumn{1}{c}{Camp. 5}&\multicolumn{1}{c}{Nodo 6}&\multicolumn{1}{c}{Camp. 6}&\multicolumn{1}{c}{Nodo 7}\\
@@ -531,16 +544,17 @@ Infine tra gli allegati della presente relazione, in particolare a pagina \pager
 \end{landscape}
 \clearpage
 \begin{landscape}
+\subsection*{SLU}
 \begin{figure}[H]
 \centering
-\subfloat[][\emph{Sovrapposizione dei diagrammi del taglio dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} \label{fig:TagliA_ULS}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/ULS_Tptot.pdf}} 
+\subfloat[][\emph{Sovrapposizione dei diagrammi del taglio dovuta alle diverse casistiche di carico illustrate in figura \ref{fig:Struttura2} \label{fig:TagliA_ULS}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/ULS_Tptot.pdf}} 
 \subfloat[][\emph{Inviluppo dei diagrammi del taglio sovrapposti \label{fig:TagliB_ULS}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/ULS_TpInviluppo.pdf}} 
-\caption{SLU}
+\caption{Diagrammi del taglio generati con combinazione di carico SLU}
 \label{fig:Tagli_ULS}
 \end{figure}
 \begin{table}[H]
 \centering
-\caption{boh}
+\caption{Valori del taglio con combinazione di carico SLU nei punti più significativi della struttura}
 	\begin{tabular}{lS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
 		\toprule
 		&\multicolumn{1}{c}{Nodo 1}&\multicolumn{1}{c}{Camp. 1}&\multicolumn{1}{c}{Nodo 2}&\multicolumn{1}{c}{Camp. 2}&\multicolumn{1}{c}{Nodo 3}&\multicolumn{1}{c}{Camp. 3}&\multicolumn{1}{c}{Nodo 4}&\multicolumn{1}{c}{Camp. 4}&\multicolumn{1}{c}{Nodo 5}&\multicolumn{1}{c}{Camp. 5}&\multicolumn{1}{c}{Nodo 6}&\multicolumn{1}{c}{Camp. 6}&\multicolumn{1}{c}{Nodo 7}\\
@@ -557,14 +571,14 @@ Infine tra gli allegati della presente relazione, in particolare a pagina \pager
 \subsection*{SLE -- Rara}
 \begin{figure}[H]
 \centering
-\subfloat[][\emph{Sovrapposizione dei diagrammi del momento dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} \label{fig:MomentiA_SLScharacteristic}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLScharacteristic_ptot.pdf}} 
+\subfloat[][\emph{Sovrapposizione dei diagrammi del momento dovuta alle diverse casistiche di carico illustrate in figura \ref{fig:Struttura2} \label{fig:MomentiA_SLScharacteristic}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLScharacteristic_ptot.pdf}} 
 \subfloat[][\emph{Inviluppo dei diagrammi del momento sovrapposti \label{fig:MomentiB_SLScharacteristic}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLScharacteristic_pInviluppo.pdf}} 
-\caption{SLU}
+\caption{Diagrammi del momento generati con combinazione di carico SLE -- Rara}
 \label{fig:Momenti_SLScharacteristic}
 \end{figure}
 \begin{table}[H]
 \centering
-\caption{boh}
+\caption{Valori del momento con combinazione di carico SLE -- Rara nei punti più significativi della struttura}
 	\begin{tabular}{lS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
 		\toprule
 		&\multicolumn{1}{c}{Nodo 1}&\multicolumn{1}{c}{Camp. 1}&\multicolumn{1}{c}{Nodo 2}&\multicolumn{1}{c}{Camp. 2}&\multicolumn{1}{c}{Nodo 3}&\multicolumn{1}{c}{Camp. 3}&\multicolumn{1}{c}{Nodo 4}&\multicolumn{1}{c}{Camp. 4}&\multicolumn{1}{c}{Nodo 5}&\multicolumn{1}{c}{Camp. 5}&\multicolumn{1}{c}{Nodo 6}&\multicolumn{1}{c}{Camp. 6}&\multicolumn{1}{c}{Nodo 7}\\
@@ -577,16 +591,17 @@ Infine tra gli allegati della presente relazione, in particolare a pagina \pager
 \end{landscape}
 \clearpage
 \begin{landscape}
+\subsection*{SLE -- Rara}
 \begin{figure}[H]
 \centering
-\subfloat[][\emph{Sovrapposizione dei diagrammi del taglio dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} \label{fig:TagliA_SLScharacteristic}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLScharacteristic_Tptot.pdf}} 
+\subfloat[][\emph{Sovrapposizione dei diagrammi del taglio dovuta alle diverse casistiche di carico illustrate in figura \ref{fig:Struttura2} \label{fig:TagliA_SLScharacteristic}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLScharacteristic_Tptot.pdf}} 
 \subfloat[][\emph{Inviluppo dei diagrammi del taglio sovrapposti \label{fig:TagliB_SLScharacteristic}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLScharacteristic_TpInviluppo.pdf}} 
-\caption{SLU}
+\caption{Diagrammi del taglio generati con combinazione di carico SLU -- Rara}
 \label{fig:Tagli_SLScharacteristic}
 \end{figure}
 \begin{table}[H]
 \centering
-\caption{boh}
+\caption{Valori del taglio con combinazione di carico SLE -- Rara nei punti più significativi della struttura}
 	\begin{tabular}{lS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
 		\toprule
 		&\multicolumn{1}{c}{Nodo 1}&\multicolumn{1}{c}{Camp. 1}&\multicolumn{1}{c}{Nodo 2}&\multicolumn{1}{c}{Camp. 2}&\multicolumn{1}{c}{Nodo 3}&\multicolumn{1}{c}{Camp. 3}&\multicolumn{1}{c}{Nodo 4}&\multicolumn{1}{c}{Camp. 4}&\multicolumn{1}{c}{Nodo 5}&\multicolumn{1}{c}{Camp. 5}&\multicolumn{1}{c}{Nodo 6}&\multicolumn{1}{c}{Camp. 6}&\multicolumn{1}{c}{Nodo 7}\\
@@ -603,14 +618,14 @@ Infine tra gli allegati della presente relazione, in particolare a pagina \pager
 \subsection*{SLE -- Frequente}
 \begin{figure}[H]
 \centering
-\subfloat[][\emph{Sovrapposizione dei diagrammi del momento dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} \label{fig:MomentiA_SLSfrequent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSfrequent_ptot.pdf}} 
+\subfloat[][\emph{Sovrapposizione dei diagrammi del momento dovuta alle diverse casistiche di carico illustrate in figura \ref{fig:Struttura2} \label{fig:MomentiA_SLSfrequent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSfrequent_ptot.pdf}} 
 \subfloat[][\emph{Inviluppo dei diagrammi del momento sovrapposti \label{fig:MomentiB_SLSfrequent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSfrequent_pInviluppo.pdf}} 
-\caption{SLU}
+\caption{Diagrammi del momento generati con combinazione di carico SLE -- Frequente}
 \label{fig:Momenti_SLSfrequent}
 \end{figure}
 \begin{table}[H]
 \centering
-\caption{boh}
+\caption{Valori del momento con combinazione di carico SLE -- Frequente nei punti più significativi della struttura}
 	\begin{tabular}{lS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
 		\toprule
 		&\multicolumn{1}{c}{Nodo 1}&\multicolumn{1}{c}{Camp. 1}&\multicolumn{1}{c}{Nodo 2}&\multicolumn{1}{c}{Camp. 2}&\multicolumn{1}{c}{Nodo 3}&\multicolumn{1}{c}{Camp. 3}&\multicolumn{1}{c}{Nodo 4}&\multicolumn{1}{c}{Camp. 4}&\multicolumn{1}{c}{Nodo 5}&\multicolumn{1}{c}{Camp. 5}&\multicolumn{1}{c}{Nodo 6}&\multicolumn{1}{c}{Camp. 6}&\multicolumn{1}{c}{Nodo 7}\\
@@ -623,16 +638,17 @@ Infine tra gli allegati della presente relazione, in particolare a pagina \pager
 \end{landscape}
 \clearpage
 \begin{landscape}
+\subsection*{SLE -- Frequente}
 \begin{figure}[H]
 \centering
-\subfloat[][\emph{Sovrapposizione dei diagrammi del taglio dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} \label{fig:TagliA_SLSfrequent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSfrequent_Tptot.pdf}} 
+\subfloat[][\emph{Sovrapposizione dei diagrammi del taglio dovuta alle diverse casistiche di carico illustrate in figura \ref{fig:Struttura2} \label{fig:TagliA_SLSfrequent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSfrequent_Tptot.pdf}} 
 \subfloat[][\emph{Inviluppo dei diagrammi del taglio sovrapposti \label{fig:TagliB_SLSfrequent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSfrequent_TpInviluppo.pdf}} 
-\caption{SLU}
+\caption{Diagrammi del taglio generati con combinazione di carico SLE -- Frequente}
 \label{fig:Tagli_SLSfrequent}
 \end{figure}
 \begin{table}[H]
 \centering
-\caption{boh}
+\caption{Valori del taglio con combinazione di carico SLE -- Frequente nei punti più significativi della struttura}
 	\begin{tabular}{lS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
 		\toprule
 		&\multicolumn{1}{c}{Nodo 1}&\multicolumn{1}{c}{Camp. 1}&\multicolumn{1}{c}{Nodo 2}&\multicolumn{1}{c}{Camp. 2}&\multicolumn{1}{c}{Nodo 3}&\multicolumn{1}{c}{Camp. 3}&\multicolumn{1}{c}{Nodo 4}&\multicolumn{1}{c}{Camp. 4}&\multicolumn{1}{c}{Nodo 5}&\multicolumn{1}{c}{Camp. 5}&\multicolumn{1}{c}{Nodo 6}&\multicolumn{1}{c}{Camp. 6}&\multicolumn{1}{c}{Nodo 7}\\
@@ -649,14 +665,14 @@ Infine tra gli allegati della presente relazione, in particolare a pagina \pager
 \subsection*{SLE -- Quasi Permanente}
 \begin{figure}[H]
 \centering
-\subfloat[][\emph{Sovrapposizione dei diagrammi del momento dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} \label{fig:MomentiA_SLSquasiPermanent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSquasiPermanent_ptot.pdf}} 
+\subfloat[][\emph{Sovrapposizione dei diagrammi del momento dovuta alle diverse casistiche di carico illustrate in figura \ref{fig:Struttura2} \label{fig:MomentiA_SLSquasiPermanent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSquasiPermanent_ptot.pdf}} 
 \subfloat[][\emph{Inviluppo dei diagrammi del momento sovrapposti \label{fig:MomentiB_SLSquasiPermanent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSquasiPermanent_pInviluppo.pdf}} 
-\caption{SLU}
+\caption{Diagrammi del momento generati con combinazione di carico SLE -- Quasi Permanente}
 \label{fig:Momenti_SLSquasiPermanent}
 \end{figure}
 \begin{table}[H]
 \centering
-\caption{boh}
+\caption{Valori del momento con combinazione di carico SLE -- Quasi Permanente nei punti più significativi della struttura}
 	\begin{tabular}{lS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
 		\toprule
 		&\multicolumn{1}{c}{Nodo 1}&\multicolumn{1}{c}{Camp. 1}&\multicolumn{1}{c}{Nodo 2}&\multicolumn{1}{c}{Camp. 2}&\multicolumn{1}{c}{Nodo 3}&\multicolumn{1}{c}{Camp. 3}&\multicolumn{1}{c}{Nodo 4}&\multicolumn{1}{c}{Camp. 4}&\multicolumn{1}{c}{Nodo 5}&\multicolumn{1}{c}{Camp. 5}&\multicolumn{1}{c}{Nodo 6}&\multicolumn{1}{c}{Camp. 6}&\multicolumn{1}{c}{Nodo 7}\\
@@ -669,16 +685,17 @@ Infine tra gli allegati della presente relazione, in particolare a pagina \pager
 \end{landscape}
 \clearpage
 \begin{landscape}
+\subsection*{SLE -- Quasi Permanente}
 \begin{figure}[H]
 \centering
-\subfloat[][\emph{Sovrapposizione dei diagrammi del taglio dovuta alle diverse casistiche dei carico illustrate in figura \ref{fig:Struttura2} \label{fig:TagliA_SLSquasiPermanent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSquasiPermanent_Tptot.pdf}} 
+\subfloat[][\emph{Sovrapposizione dei diagrammi del taglio dovuta alle diverse casistiche di carico illustrate in figura \ref{fig:Struttura2} \label{fig:TagliA_SLSquasiPermanent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSquasiPermanent_Tptot.pdf}} 
 \subfloat[][\emph{Inviluppo dei diagrammi del taglio sovrapposti \label{fig:TagliB_SLSquasiPermanent}}]{\includegraphics[height=0.5\textwidth]{../imgExportSage/SLSquasiPermanent_TpInviluppo.pdf}} 
-\caption{SLU}
+\caption{Diagrammi del taglio generati con combinazione di carico SLE -- Quasi Permanente}
 \label{fig:Tagli_SLSquasiPermanent}
 \end{figure}
 \begin{table}[H]
 \centering
-\caption{boh}
+\caption{Valori del taglio con combinazione di carico SLE -- Quasi Permanente nei punti più significativi della struttura}
 	\begin{tabular}{lS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
 		\toprule
 		&\multicolumn{1}{c}{Nodo 1}&\multicolumn{1}{c}{Camp. 1}&\multicolumn{1}{c}{Nodo 2}&\multicolumn{1}{c}{Camp. 2}&\multicolumn{1}{c}{Nodo 3}&\multicolumn{1}{c}{Camp. 3}&\multicolumn{1}{c}{Nodo 4}&\multicolumn{1}{c}{Camp. 4}&\multicolumn{1}{c}{Nodo 5}&\multicolumn{1}{c}{Camp. 5}&\multicolumn{1}{c}{Nodo 6}&\multicolumn{1}{c}{Camp. 6}&\multicolumn{1}{c}{Nodo 7}\\

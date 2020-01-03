@@ -147,7 +147,7 @@ Q_{vento}^{P1} &= \SI{2.510}{\kilo\newton}
 Sommando il peso proprio del pilastro relativo al piano terra con un'altezza di interpiano di \SI{3.10}{\meter} e aggiungendo le pareti perimetrali si ha 
 \begin{align*}
 G_1^{P1} &= G_1^{pil.} + G_1^{sol.} = \SI{6.975}{} + \SI{14.40}{} =\SI{21.38}{\kilo\newton}\\
-G_2^{P2} &= \SI{20.79}{\kilo\newton}\\
+G_2^{P2} &= \SI{20.79}{}n+ \frac{1}{2}\cdot(4 + 4)\cdot \SI{8.382}{}=\SI{54.32}{\kilo\newton}\\
 Q_{cat. A}^{P2} &= \SI{9.000}{\kilo\newton}
 \end{align*}
 \paragraph*{Copertura}
@@ -197,10 +197,10 @@ SLE &= \SI{6.188}{\kilo\newton}
 \end{align*}
 \paragraph*{Piano secondo}
 \begin{align*} 
-	SLU^{\text{sfav}}_{\text{cat. A}}		&= \SI{72.48}{\kilo\newton} \\	
-	SLE^{\text{rara}}_{\text{cat. A}} 		&= \SI{51.17}{\kilo\newton} \\
-	SLE^{\text{frequente}}_{\text{cat. A}} 	&= \SI{46.67}{\kilo\newton} \\
-	SLE^{\text{quasi perm.}}_{\text{cat. A}}&= \SI{44.87}{\kilo\newton}
+	SLU^{\text{sfav}}_{\text{cat. A}}		&= \SI{122.8}{\kilo\newton} \\	
+	SLE^{\text{rara}}_{\text{cat. A}} 		&= \SI{84.70}{\kilo\newton} \\
+	SLE^{\text{frequente}}_{\text{cat. A}} 	&= \SI{80.20}{\kilo\newton} \\
+	SLE^{\text{quasi perm.}}_{\text{cat. A}}&= \SI{78.40}{\kilo\newton}
 \end{align*}
 \paragraph*{Copertura} 
 \begin{align*} 
@@ -219,10 +219,10 @@ SLE &= \SI{6.188}{\kilo\newton}
 \section{Totale agente sul pilastro}
 Prendendo il valore massimo tra le combinazioni e sommando si ottengono i massimi carichi assiali possibili sul pilastro P36.
 \begin{align*} 
-	SLU^{\text{sfav}}_{\text{P36}}		n&= \SI{1148}{\kilo\newton} \\	
-	SLE^{\text{rara}}_{\text{P36}} 		 &= \SI{798.7}{\kilo\newton} \\
-	SLE^{\text{frequente}}_{\text{P36}}  &= \SI{672.5}{\kilo\newton} \\
-	SLE^{\text{quasi perm.}}_{\text{P36}}&= \SI{637.2}{\kilo\newton}
+	SLU^{\text{sfav}}_{\text{P36}}		 &= \SI{1198}{\kilo\newton} \\	
+	SLE^{\text{rara}}_{\text{P36}} 		 &= \SI{832.2}{\kilo\newton} \\
+	SLE^{\text{frequente}}_{\text{P36}}  &= \SI{706.1}{\kilo\newton} \\
+	SLE^{\text{quasi perm.}}_{\text{P36}}&= \SI{670.8}{\kilo\newton}
 \end{align*}
 \e possibile infine riportarne l'andamento su di un grafico.
 \begin{figure}[htb]
@@ -243,45 +243,45 @@ Prendendo il valore massimo tra le combinazioni e sommando si ottengono i massim
 	   (0000.00, 9.7  )
 	   (0049.48, 9.7  )
 	   (0058.55, 6.6  )
-	   (0121.96, 6.6  )
-	   (0131.03, 3.5  )
-	   (0613.22, 3.5  )
-	   (0623.45, 0    )
-	   (1140.07, 0    )
-	   (1148.11, -2.75)
+	   (0172.25, 6.6  )
+	   (0181.32, 3.5  )
+	   (0663.51, 3.5  )
+	   (0673.75, 0    )
+	   (1190.36, 0    )
+	   (1198.40, -2.75)
 	};
 	\addplot[thick,color=blue] coordinates {
 	   (0000.00,  9.7  )
 	   (0035.15, 9.7  )
 	   (0042.12, 6.6  )
-	   (0086.32, 6.6  )
-	   (0093.29, 3.5  )
-	   (0418.72, 3.5  )
-	   (0426.59, 0    )
-	   (0786.30, 0    )
-	   (0798.68, -2.75)
+	   (0119.84, 6.6  )
+	   (0126.82, 3.5  )
+	   (0452.25, 3.5  )
+	   (0460.12, 0    )
+	   (0819.83, 0    )
+	   (0832.21, -2.75)
 	};
 	\addplot[thick,color=green] coordinates {
 	   (0000.00,  9.7  )
 	   (0030.15, 9.7  )
 	   (0037.13, 6.6  )
-	   (0076.82, 6.6  )
-	   (0083.80, 3.5  )
-	   (0326.63, 3.5  )
-	   (0334.50, 0    )
-	   (0660.16, 0    )
-	   (0672.54, -2.75)
+	   (0110.35, 6.6  )
+	   (0117.32, 3.5  )
+	   (0360.15, 3.5  )
+	   (0368.03, 0    )
+	   (0693.69, 0    )
+	   (0706.07, -2.75)
 	};
 	\addplot[thick,color=magenta] coordinates {
 	   (0000.00,  9.7  )
 	   (0028.98, 9.7  )
 	   (0035.96, 6.6  )
-	   (0073.85, 6.6  )
-	   (0080.83, 3.5  )
-	   (0302.66, 3.5  )
-	   (0310.53, 0    )
-	   (0624.84, 0    )
-	   (0637.22, -2.75)
+	   (0107.38, 6.6  )
+	   (0114.35, 3.5  )
+	   (0336.18, 3.5  )
+	   (0344.06, 0    )
+	   (0658.37, 0    )
+	   (0670.75, -2.75)
 	};
 	\legend{SLU,SLE Rara,SLE Frequente,SLE Quasi Permanente}
 	\end{axis}
